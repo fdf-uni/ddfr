@@ -7,9 +7,9 @@
 convolve_cpp(supp1, probs1, supp2, probs2)
 }
 \arguments{
-\item{supp1, probs1}{Numeric vectors.}
+\item{supp1, probs1}{Numeric vectors of the same length.}
 
-\item{supp2, probs2}{Numeric vectors.}
+\item{supp2, probs2}{Numeric vectors of the same length.}
 }
 \value{
 A list.

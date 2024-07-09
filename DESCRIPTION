@@ -19,3 +19,6 @@ LinkingTo: Rcpp
 Imports: 
     ggplot2,
     Rcpp
+Suggests: 
+    spelling
+Language: en-US

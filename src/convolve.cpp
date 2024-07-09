@@ -13,8 +13,8 @@
 //' which give the matching attributes of the convolution.
 //'
 //' @export
-//' @param supp1,probs1 Numeric vectors.
-//' @param supp2,probs2 Numeric vectors.
+//' @param supp1,probs1 Numeric vectors of the same length.
+//' @param supp2,probs2 Numeric vectors of the same length.
 //' @return A list.
 //' @examples
 //' # Calculate the probability distribution of the sum of two six-sided dice
