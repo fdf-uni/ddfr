@@ -1,12 +1,21 @@
 Package: ddfr
-Title: What the Package Does (One Line, Title Case)
+Title: Work with discrete distributions with finite support
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person(
+      "fdf",
+      email = "171835561+fdf-uni@users.noreply.github.com",
+      role = c("aut", "cre")
+    )
+Description: This package enables you to create objects for representing
+    discrete distributions with finite support by specifying their probability
+    mass functions. These objects can then be used for a variety of tasks, from
+    simple statistical analyses over plotting to convolutions.
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+LinkingTo: Rcpp
+Imports: 
+    ggplot2,
+    Rcpp
