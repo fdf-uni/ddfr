@@ -1,5 +1,4 @@
 #' @keywords internal
-#' @useDynLib ddfr
 "_PACKAGE"
 
 ## usethis namespace: start

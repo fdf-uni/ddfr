@@ -12,11 +12,10 @@
 //' The function returns a list with components "support" and "probabilities"
 //' which give the matching attributes of the convolution.
 //'
+//' @export
 //' @param supp1,probs1 Numeric vectors.
 //' @param supp2,probs2 Numeric vectors.
 //' @return A list.
-//' @export
-//' @importFrom Rcpp evalCpp
 //' @examples
 //' # Calculate the probability distribution of the sum of two six-sided dice
 //' convolve_cpp((1:6), rep(1/6, 6), (1:6), rep(1/6, 6))
