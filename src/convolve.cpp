@@ -1,7 +1,25 @@
 #include "Rcpp.h"
 
-// Calculate the convolution of two discrete random variables given
-// the supports and corresponding probabilities as R numeric vectors
+//' Convolve two discrete distributions
+//'
+//' `convolve_cpp` returns the convolution of two discrete distributions given
+//' their supports and the corresponding probabilities.
+//'
+//' Some assumptions are made for the function to work properly which should be
+//' followed. Most importantly, corresponding numeric vectors (e.g. `supp1` and
+//' `probs1`) should have the same length.
+//'
+//' The function returns a list with components "support" and "probabilities"
+//' which give the matching attributes of the convolution.
+//'
+//' @param supp1,probs1 Numeric vectors.
+//' @param supp2,probs2 Numeric vectors.
+//' @return A list.
+//' @export
+//' @importFrom Rcpp evalCpp
+//' @examples
+//' # Calculate the probability distribution of the sum of two six-sided dice
+//' convolve_cpp((1:6), rep(1/6, 6), (1:6), rep(1/6, 6))
 // [[Rcpp::export]]
 Rcpp::List convolve_cpp(const Rcpp::NumericVector &supp1,
                         const Rcpp::NumericVector &probs1,
