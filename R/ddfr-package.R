@@ -3,6 +3,7 @@
 
 ## usethis namespace: start
 #' @importFrom methods new
+#' @importFrom methods validObject
 #' @importFrom Rcpp sourceCpp
 #' @importFrom stats aggregate
 #' @importFrom stats dbinom

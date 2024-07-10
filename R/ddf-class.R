@@ -1,3 +1,5 @@
+# == Class ==
+
 #' An S4 class to represent a discrete distribution with finite support
 #'
 #' @description
@@ -52,6 +54,8 @@ setClass(
 )
 
 
+
+# == Constructor ==
 
 #' Create new `ddf` objects
 #'
@@ -150,6 +154,33 @@ setGeneric("desc", function(dist) standardGeneric("desc"))
 setMethod("desc", "ddf", function(dist) dist@desc)
 
 
+# == Setters ==
+
+#' Set the description of a `ddf` object
+#'
+#' @param dist A `ddf` object
+#' @param value A character, new description
+#'
+#' @return Description text of the `ddf` object.
+#' @export
+#'
+#' @examples
+#' mydist <- unif(8)
+#' print(mydist)
+#' desc(mydist) <- "This distribution needs a better description"
+#' print(mydist)
+setGeneric("desc<-", function(dist, value) standardGeneric("desc<-"))
+#' @export
+#' @rdname desc-set
+setMethod("desc<-", "ddf", function(dist, value){
+  dist@desc <- value
+  validObject(dist)
+  dist
+})
+
+
+
+# == Further methods ==
 
 # Create custom text when showing/printing a `ddf` object
 setMethod("show", "ddf", function(object) {
@@ -159,3 +190,6 @@ setMethod("show", "ddf", function(object) {
     "  Probabilities:", object@probs, "\n"
   )
 })
+
+# Calculate mean
+setMethod("mean", "ddf", function(x, ...) moment(x, 1))
