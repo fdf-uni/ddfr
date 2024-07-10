@@ -4,15 +4,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ddfr is to make it easier to work with **d**iscrete **d**istributions
-with **f**inite support in **R**.
+The goal of ddfr is to make it easier to work with **D**iscrete **D**istributions
+with **F**inite support in **R**.
 
 ## Installation
 
 You can install the development version of ddfr like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+remotes::install_github("fdf-uni/ddfr")
 ```
 
 ## Example
