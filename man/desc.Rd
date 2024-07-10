@@ -19,6 +19,6 @@ Description text of the \code{ddf} object.
 Get the description of a \code{ddf} object
 }
 \examples{
-desc(ddf((1:3)))
-desc(ddf((1:3), desc = "My custom description"))
+desc(ddf(1:3))
+desc(ddf(1:3, desc = "My custom description"))
 }

@@ -2,20 +2,23 @@
 % Please edit documentation in R/convolve.R
 \name{conv_n}
 \alias{conv_n}
-\title{Calculate $n$-fold convolution of a distribution with itself}
+\title{Calculate n-fold convolution of a distribution with itself}
 \usage{
 conv_n(dist, n, desc = paste(n, "-fold convolution of", desc(dist)))
 }
 \arguments{
 \item{dist}{A \code{ddf} distribution}
 
-\item{n}{Integer, number of convolutions to perform}
+\item{n}{A integer specifying number of convolutions to perform}
 
 \item{desc}{The description for the resulting \code{ddf} object (optional)}
 }
+\value{
+n-fold convolution as a \code{ddf} object
+}
 \description{
-Using this function, a distribution, given as a \code{ddf} objects, can be
-convolved with itself $n$ times.
+Using this function, a distribution, given as a \code{ddf} object, can be
+convolved with itself n times.
 }
 \details{
 Under the hood, this functions uses a \verb{C++} implementation for calculating
@@ -24,7 +27,7 @@ the convolution in order to get significant performance gains, compare
 }
 \examples{
 # Calculate the distribution of the sum of throwing a dice four times
-conv_n(ddf((1:6)), 4, desc = "Distribution of throwing a dice four times")
+conv_n(ddf(1:6), 4, desc = "Distribution of throwing a dice four times")
 }
 \seealso{
 \code{\link[=convolve_cpp]{convolve_cpp()}},\code{\link[=conv]{conv()}}

@@ -44,7 +44,7 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 #' @param n A integer specifying number of convolutions to perform
 #' @param desc The description for the resulting `ddf` object (optional)
 #'
-#' @return
+#' @return n-fold convolution as a `ddf` object
 #' @export
 #'
 #' @examples

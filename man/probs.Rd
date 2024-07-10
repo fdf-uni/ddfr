@@ -19,6 +19,6 @@ Probabilities on the support as a numerical vector.
 Get the probabilities of a \code{ddf} object
 }
 \examples{
-probs(ddf((1:3)))
-probs(ddf((1:3), c(1/2, 1/4, 1/4)))
+probs(ddf(1:3))
+probs(ddf(1:3, c(1/2, 1/4, 1/4)))
 }

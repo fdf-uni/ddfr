@@ -19,5 +19,5 @@ Support as a numerical vector.
 Get the support of a \code{ddf} object
 }
 \examples{
-supp(ddf((1:3)))
+supp(ddf(1:3))
 }

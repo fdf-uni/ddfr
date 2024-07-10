@@ -27,7 +27,7 @@ the convolution in order to get significant performance gains, compare
 }
 \examples{
 # Calculate the distribution of the sum of throwing a dice twice
-dice <- ddf((1:6))
+dice <- ddf(1:6)
 conv(dice, dice, desc = "Distribution of throwing a dice twice")
 }
 \seealso{
