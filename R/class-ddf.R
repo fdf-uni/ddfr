@@ -54,8 +54,6 @@ setClass(
 
 
 #' Create new `ddf` objects
-#' @importFrom methods new
-#' @importFrom stats aggregate
 #'
 #' @description
 #' Use this function to create a new `ddf` object by passing the support and

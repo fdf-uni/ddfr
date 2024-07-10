@@ -19,7 +19,8 @@ LinkingTo: Rcpp
 Imports: 
     ggplot2,
     methods,
-    Rcpp
+    Rcpp,
+    stats
 Suggests: 
     spelling
 Language: en-US

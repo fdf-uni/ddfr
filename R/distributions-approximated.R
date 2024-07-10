@@ -20,8 +20,6 @@
 #' sum of all probabilities has to be to 1. The default value is 1e-10 since
 #' this is also the minimum accuracy required for creating valid `ddf` objects.
 #'
-#' @importFrom stats qpois dpois
-#'
 #' @param lambda Expected rate of occurrences
 #' @param eps How close the distribution is approximated (see details, optional)
 #'
@@ -67,8 +65,6 @@ pois <- function(lambda, eps = 1e-10) {
 #' The cutoff is controlled via the `eps` argument which specifies how close the
 #' sum of all probabilities has to be to 1. The default value is 1e-10 since
 #' this is also the minimum accuracy required for creating valid `ddf` objects.
-#'
-#' @importFrom stats qnbinom dnbinom
 #'
 #' @param r Number of successes until the experiment is stopped
 #' @param p Success probability in each experiment

@@ -54,8 +54,6 @@ unif <- function(n, start_at_one = TRUE) {
 #' @description
 #' Create a `ddf` object for the binomial distribution with the given parameters.
 #'
-#' @importFrom stats dbinom
-#'
 #' @param n Number of trials
 #' @param p Success probability for each trial
 #'
@@ -188,8 +186,6 @@ zipf <- function(N, s = 1) {
 #' @description
 #' Create a `ddf` object for the hypergeometric distribution with the given
 #' parameters.
-#'
-#' @importFrom stats dhyper
 #'
 #' @param N Population size
 #' @param K Number of success states in the population
