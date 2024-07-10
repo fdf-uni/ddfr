@@ -29,6 +29,7 @@
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' pois(0.3)
@@ -76,13 +77,14 @@ pois <- function(lambda, eps = 1e-10) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' # 'r' does not have to be an integer
-#' neg_bin(2.25, 0.95)
+#' negative_bin(2.25, 0.95)
 #' # A more accurate approximation of the same distribution
-#' neg_bin(2.25, 0.95, 1e-12)
-neg_bin <- function(r, p, eps = 1e-10) {
+#' negative_bin(2.25, 0.95, 1e-12)
+negative_bin <- function(r, p, eps = 1e-10) {
   # Check that r > 0
   if (r <= 0)
     stop("Error: Argument 'r' must be a positive real number")
@@ -131,6 +133,7 @@ neg_bin <- function(r, p, eps = 1e-10) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' geometric(0.8)
@@ -139,7 +142,7 @@ neg_bin <- function(r, p, eps = 1e-10) {
 #' geometric(0.8, TRUE, 1e-15)
 geometric <- function(p, start_at_one = FALSE, eps = 1e-10) {
   # Geometric distribution is just a negative binomial one with r = 1
-  nb <- neg_bin(1, p, eps)
+  nb <- negative_bin(1, p, eps)
   # Create fitting description
   desc <- paste(
     "(Approximation of a) geometric distribution with p = ", p,

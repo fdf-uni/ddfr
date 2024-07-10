@@ -20,6 +20,7 @@
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' # Probability distribution for modelling a
@@ -62,6 +63,7 @@ unif <- function(n, start_at_one = TRUE) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' # How often a six can be expected when
@@ -97,6 +99,7 @@ bin <- function(n, p) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' # Distribution modelling a fair coin toss
@@ -124,6 +127,7 @@ bernoulli <- function(p) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' rademacher()
@@ -140,6 +144,7 @@ rademacher <- function() {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' # Distribution of first digits,according
@@ -163,6 +168,7 @@ benford <- function(b) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' zipf(5)
@@ -196,6 +202,7 @@ zipf <- function(N, s = 1) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' # Model the total number of white marbles when
@@ -234,6 +241,7 @@ hypergeometric <- function(N, K, n) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' hypergeometric(20, 6, 5)
@@ -274,6 +282,7 @@ negative_hypergeometric <- function(N, K, r) {
 #'
 #' @return A `ddf` distribution as described above
 #' @export
+#' @family distributions
 #'
 #' @examples
 #' beta_binomial(4, 0.6, 2)

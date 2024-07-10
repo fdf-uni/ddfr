@@ -103,4 +103,3 @@ mode <- function(dist, method = "all") {
 median <- function(dist, method = "all") {
   return(quantile(dist, 1/2, method))
 }
-
