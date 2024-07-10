@@ -26,10 +26,10 @@
 #' @family quantiles
 #'
 #' @examples
-#' quantile(unif(6), 1/2)
+#' quantiles(unif(6), 1/2)
 #' # Using another method for output
-#' quantile(unif(6), 1/2, method = "mean")
-quantile <- function(dist, p, method = "all") {
+#' quantiles(unif(6), 1/2, method = "mean")
+quantiles <- function(dist, p, method = "all") {
   methods <- c("all", "mean", "min", "max")
   # Ensure that method is implemented
   if(!(method %in% methods))
@@ -65,7 +65,7 @@ quantile <- function(dist, p, method = "all") {
 #' This function calculates the \eqn{k}-th percentile of a `ddf` distribution.
 #'
 #' @details
-#' For details consult the details of [quantile()] and recall that a \eqn{k}-th
+#' For details consult the details of [quantiles()] and recall that a \eqn{k}-th
 #' percentile is a \eqn{k/100}-quantile and vice versa.
 #'
 #' @param dist `ddf` object, the distribution
@@ -79,7 +79,7 @@ quantile <- function(dist, p, method = "all") {
 #' @examples
 #' percentile(bin(10, 0.3), 30)
 percentile <- function(dist, k, method = "all") {
-  return(quantile(dist, k/100, method))
+  return(quantiles(dist, k/100, method))
 }
 
 #' Calculate deciles of distributions
@@ -88,7 +88,7 @@ percentile <- function(dist, k, method = "all") {
 #' This function calculates the \eqn{k}-th decile of a `ddf` distribution.
 #'
 #' @details
-#' For details consult the details of [quantile()] and recall that a \eqn{k}-th
+#' For details consult the details of [quantiles()] and recall that a \eqn{k}-th
 #' decile is a \eqn{k/10}-quantile and vice versa.
 #'
 #' @param dist `ddf` object, the distribution
@@ -102,7 +102,7 @@ percentile <- function(dist, k, method = "all") {
 #' @examples
 #' decile(bin(10, 0.3), 3)
 decile <- function(dist, k, method = "all") {
-  return(quantile(dist, k/10, method))
+  return(quantiles(dist, k/10, method))
 }
 
 #' Calculate quartiles of distributions
@@ -111,7 +111,7 @@ decile <- function(dist, k, method = "all") {
 #' This function calculates the \eqn{k}-th quartile of a `ddf` distribution.
 #'
 #' @details
-#' For details consult the details of [quantile()] and recall that a \eqn{k}-th
+#' For details consult the details of [quantiles()] and recall that a \eqn{k}-th
 #' quartile is a \eqn{k/4}-quantile and vice versa.
 #'
 #' @param dist `ddf` object, the distribution
@@ -125,5 +125,5 @@ decile <- function(dist, k, method = "all") {
 #' @examples
 #' quartile(bin(10, 0.3), 3)
 quartile <- function(dist, k, method = "all") {
-  return(quantile(dist, k/4, method))
+  return(quantiles(dist, k/4, method))
 }

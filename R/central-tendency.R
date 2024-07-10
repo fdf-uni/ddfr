@@ -26,7 +26,7 @@ expected_value <- function(dist) {
 #'
 #' @description
 #' This function calculates the mode of a distribution, given as a `ddf` object.
-#' In the case the mode is not unique, by default all possible values are
+#' In the case of the mode not being unique, by default all possible values are
 #' returned. This behaviour can be controlled using the `methods` argument.
 #'
 #' @details
@@ -50,10 +50,10 @@ expected_value <- function(dist) {
 #' @examples
 #' # In case the mode is not unique, by default all
 #' # possible modes are returned
-#' mode(unif(3))
+#' modes(unif(3))
 #' # This can be controlled using the method argument
-#' mode(unif(3), method = "mean")
-mode <- function(dist, method = "all") {
+#' modes(unif(3), method = "mean")
+modes <- function(dist, method = "all") {
   methods <- c("all", "mean", "min", "max")
   # Ensure that method is implemented
   if(!(method %in% methods))
@@ -80,9 +80,10 @@ mode <- function(dist, method = "all") {
 #' Calculate medians of distributions
 #'
 #' @description
-#' This function calculates the median of a distribution, given as a `ddf` object.
-#' In the case the median is not unique, by default all possible values are
-#' returned. This behaviour can be controlled using the `methods` argument.
+#' This function calculates the median(s) of a distribution, given as a `ddf`
+#' object. In the case of the median not being unique, by default all possible
+#' values are returned. This behaviour can be controlled using the `methods`
+#' argument.
 #'
 #' @details
 #' For details consult the details of [quantile()] and recall that a median is a
@@ -97,9 +98,9 @@ mode <- function(dist, method = "all") {
 #' @examples
 #' # In case the mode is not unique, by default all
 #' # possible modes are returned
-#' median(unif(4))
+#' medians(unif(4))
 #' # This can be controlled using the method argument
-#' median(unif(4), method = "mean")
-median <- function(dist, method = "all") {
-  return(quantile(dist, 1/2, method))
+#' medians(unif(4), method = "mean")
+medians <- function(dist, method = "all") {
+  return(quantiles(dist, 1/2, method))
 }
