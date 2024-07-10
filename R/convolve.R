@@ -20,7 +20,7 @@
 #'
 #' @examples
 #' # Calculate the distribution of the sum of throwing a dice twice
-#' dice <- ddf((1:6))
+#' dice <- ddf(1:6)
 #' conv(dice, dice, desc = "Distribution of throwing a dice twice")
 conv <- function(dist1, dist2, desc = "A convolution") {
   result <- convolve_cpp(supp(dist1), probs(dist1), supp(dist2), probs(dist2))
@@ -49,7 +49,7 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 #'
 #' @examples
 #' # Calculate the distribution of the sum of throwing a dice four times
-#' conv_n(ddf((1:6)), 4, desc = "Distribution of throwing a dice four times")
+#' conv_n(ddf(1:6), 4, desc = "Distribution of throwing a dice four times")
 conv_n <- function(dist, n, desc = paste(n, "-fold convolution of", desc(dist))) {
   dist_new <- dist
   for (i in 1:(n - 1)) {

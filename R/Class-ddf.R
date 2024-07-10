@@ -81,7 +81,7 @@ setClass(
 #'
 #' @examples
 #' # Create ddf object for an ordinary six-sided dice
-#' dice <- ddf((1:6), desc = "Distribution modelling a six-sided dice")
+#' dice <- ddf(1:6, desc = "Distribution modelling a six-sided dice")
 #' # Create ddf object for an unfair coin toss without custom description
 #' coin_toss <- ddf(c(1,2), c(1/4, 3/4))
 ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discrete distribution with finite support") {
@@ -113,7 +113,7 @@ ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discr
 #' @export
 #'
 #' @examples
-#' supp(ddf((1:3)))
+#' supp(ddf(1:3))
 setGeneric("supp", function(dist) standardGeneric("supp"))
 #' @export
 #' @rdname supp
@@ -128,8 +128,8 @@ setMethod("supp", "ddf", function(dist) dist@supp)
 #' @export
 #'
 #' @examples
-#' probs(ddf((1:3)))
-#' probs(ddf((1:3), c(1/2, 1/4, 1/4)))
+#' probs(ddf(1:3))
+#' probs(ddf(1:3, c(1/2, 1/4, 1/4)))
 setGeneric("probs", function(dist) standardGeneric("probs"))
 #' @export
 #' @rdname probs
@@ -144,8 +144,8 @@ setMethod("probs", "ddf", function(dist) dist@probs)
 #' @export
 #'
 #' @examples
-#' desc(ddf((1:3)))
-#' desc(ddf((1:3), desc = "My custom description"))
+#' desc(ddf(1:3))
+#' desc(ddf(1:3, desc = "My custom description"))
 setGeneric("desc", function(dist) standardGeneric("desc"))
 #' @export
 #' @rdname desc
