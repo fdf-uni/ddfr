@@ -4,7 +4,7 @@
 \name{ddfr-package}
 \alias{ddfr}
 \alias{ddfr-package}
-\title{ddfr: Work with discrete distributions with finite support}
+\title{ddfr: Work with discrete distributions with finite support in R}
 \description{
 This package enables you to create objects for representing discrete distributions with finite support by specifying their probability mass functions. These objects can then be used for a variety of tasks, from simple statistical analyses over plotting to convolutions.
 }

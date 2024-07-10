@@ -1,5 +1,5 @@
 Package: ddfr
-Title: Work with discrete distributions with finite support
+Title: Work with discrete distributions with finite support in R
 Version: 0.0.0.9000
 Authors@R: 
     person(
@@ -18,6 +18,7 @@ RoxygenNote: 7.3.2
 LinkingTo: Rcpp
 Imports: 
     ggplot2,
+    methods,
     Rcpp
 Suggests: 
     spelling
