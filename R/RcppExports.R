@@ -21,7 +21,8 @@
 #' @param supp2,probs2 Numeric vectors of the same length.
 #' @return A list.
 #' @examples
-#' # Calculate the probability distribution of the sum of two six-sided dice
+#' # Calculate the probability distribution
+#' # of the sum of two six-sided dice
 #' convolve_cpp((1:6), rep(1/6, 6), (1:6), rep(1/6, 6))
 convolve_cpp <- function(supp1, probs1, supp2, probs2) {
     .Call(`_ddfr_convolve_cpp`, supp1, probs1, supp2, probs2)

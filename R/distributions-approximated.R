@@ -60,7 +60,7 @@ pois <- function(lambda, eps = 1e-10) {
   probs <- dpois(supp, lambda)
   # Create fitting description
   desc <- paste(
-    "(Approximation of a) poisson distribution with lambda = ", lambda
+    "(Approximation of a) poisson distribution with lambda =", lambda
   )
   return(ddf(supp, probs, desc))
 }

@@ -20,7 +20,8 @@
 //' @param supp2,probs2 Numeric vectors of the same length.
 //' @return A list.
 //' @examples
-//' # Calculate the probability distribution of the sum of two six-sided dice
+//' # Calculate the probability distribution
+//' # of the sum of two six-sided dice
 //' convolve_cpp((1:6), rep(1/6, 6), (1:6), rep(1/6, 6))
 // [[Rcpp::export]]
 Rcpp::List convolve_cpp(const Rcpp::NumericVector &supp1,

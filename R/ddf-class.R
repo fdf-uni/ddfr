@@ -273,11 +273,11 @@ setMethod("*", c("ddf", "ddf"), function(e1, e2) {
 
 # Create custom text when showing/printing a `ddf` object
 setMethod("show", "ddf", function(object) {
-  cat(
-    object@desc, "\n",
-    "  Support:", object@supp, "\n",
-    "  Probabilities:", object@probs, "\n"
-  )
+  cat(object@desc, "\n\n")
+  cat("Support:\n")
+  show(object@supp)
+  cat("\nProbabilities:\n")
+  show(object@probs)
 })
 
 # Calculate mean
