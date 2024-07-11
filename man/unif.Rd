@@ -9,8 +9,8 @@ unif(n, start_at_one = TRUE)
 \arguments{
 \item{n}{An integer, the upper end of the support.}
 
-\item{start_at_one}{Logical, whether to start the support at 0 or 1
-(default: TRUE).}
+\item{start_at_one}{Logical, whether to start the support at 0 or 1.
+(default: TRUE)}
 }
 \value{
 A \code{ddf} distribution as described above.

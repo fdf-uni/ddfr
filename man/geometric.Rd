@@ -12,37 +12,59 @@ the distribution.
 geometric(p, start_at_one = FALSE, eps = 1e-10)
 }
 \arguments{
-\item{p}{Success probability}
+\item{p}{A number between 0 and 1, the success probability in each experiment.}
 
-\item{start_at_one}{Whether to start the support at 0 or 1 (default: FALSE)}
+\item{start_at_one}{Logical, whether to start the support at 0 or 1.
+(default: FALSE)}
 
-\item{eps}{How close the distribution is approximated (see details, optional)}
+\item{eps}{A positive number, how close the distribution is approximated.
+See ‘Details.’ (optional)}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the geometric distribution with the given
 parameters.
 }
 \details{
-As the geometric distribution has countably infinite support and this package
-only works with discrete distributions with finite support, the resulting
-\code{ddf} object approximates the geometric distribution.
+The geometric distribution can refer to either of the following two
+distributions:
+\itemize{
+\item The probability distribution of the number of iid Bernoulli trials with
+common success probability \eqn{p} needed to get a success.
+
+It has support \eqn{\mathbb{N}^+} on which its probability mass function is
+given by
+\deqn{p(k) = (1-p)^{k-1} p.}
+\item The probability distribution of the number of failures before the first
+success is observed in the same experiment as above.
+
+Note that this simply corresponds to the first one by a shift of \eqn{1},
+i.e. its support is \eqn{\mathbb{N}_0} on which its probability mass
+function is given by
+\deqn{p(k) = (1-p)^k p.}
+}
+
+The former of these two distributions is often referred to as the \emph{shifted}
+geometric distribution.
+This function supports both of the above conventions via its \code{start_at_one}
+argument.
+
+Note that, as the geometric distribution has countably infinite support and
+this package only works with discrete distributions with finite support, the
+resulting \code{ddf} object can only approximate the geometric distribution.
 
 For this, the support is cut off at a large enough integer such that the
 overall probability is still close to 1.
 The cutoff is controlled via the \code{eps} argument which specifies how close the
 sum of all probabilities has to be to 1. The default value is 1e-10 since
 this is also the minimum accuracy required for creating valid \code{ddf} objects.
-
-Note that both conventions for the geometric distribution (i.e. starting at 0
-or 1) are supported by the function via its \code{start_at_one} argument.
 }
 \examples{
 geometric(0.8)
 # A more accurate approximation of the same distribution,
-# starting at 0 instead of 1
+# starting at 1 instead of 0
 geometric(0.8, TRUE, 1e-15)
 }
 \seealso{

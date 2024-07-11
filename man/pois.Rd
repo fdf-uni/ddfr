@@ -12,20 +12,30 @@ the distribution.
 pois(lambda, eps = 1e-10)
 }
 \arguments{
-\item{lambda}{Expected rate of occurrences}
+\item{lambda}{A positive number, the expected rate of occurrences.}
 
-\item{eps}{How close the distribution is approximated (see details, optional)}
+\item{eps}{A positive number, how close the distribution is approximated.
+See ‘Details.’ (optional)}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the Poisson distribution with the given parameters.
 }
 \details{
+The Poisson distribution models the number of occurrences of an event within
+a given time frame. For this, the events have to occur independently, must
+not be able to occur at the same instant and have to occur at a constant
+average rate, expressed by the parameter \eqn{\lambda}.
+
+It has support \eqn{\mathbb{N}_0} on which its probability mass function is
+given by
+\deqn{p(k) = e^{-\lambda} \frac{\lambda^k}{k!}.}
+
 As the Poisson distribution has countably infinite support and this package
 only works with discrete distributions with finite support, the resulting
-\code{ddf} object approximates the Poisson distribution.
+\code{ddf} object can only approximate the Poisson distribution.
 
 For this, the support is cut off at a large enough integer such that the
 overall probability is still close to 1.

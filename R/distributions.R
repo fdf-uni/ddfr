@@ -25,8 +25,8 @@ is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
 #' For a demonstration of this, see also the ‘Examples’ below.
 #'
 #' @param n An integer, the upper end of the support.
-#' @param start_at_one Logical, whether to start the support at 0 or 1
-#' (default: TRUE).
+#' @param start_at_one Logical, whether to start the support at 0 or 1.
+#' (default: TRUE)
 #'
 #' @return A `ddf` distribution as described above.
 #' @export

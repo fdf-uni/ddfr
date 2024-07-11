@@ -12,23 +12,36 @@ the distribution.
 negative_bin(r, p, eps = 1e-10)
 }
 \arguments{
-\item{r}{Number of successes until the experiment is stopped}
+\item{r}{A positive number, the number of successes until the experiment is
+stopped.}
 
-\item{p}{Success probability in each experiment}
+\item{p}{A number between 0 and 1, the success probability in each experiment.}
 
-\item{eps}{How close the distribution is approximated (see details, optional)}
+\item{eps}{A positive number, how close the distribution is approximated.
+See ‘Details.’ (optional)}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the negative binomial distribution with the given
 parameters.
 }
 \details{
+The negative binomial distribution models the number of failures in a
+sequence of iid Bernoulli trials (see also \code{\link[=bernoulli]{bernoulli()}}) with common success
+probability \eqn{p}, before a specified number \eqn{r} of successes occurs.
+
+It has support \eqn{\mathbb{N}_0} on which its probability mass function is
+given by
+\deqn{p(k) = \binom{k+r-1}{k} (1-p)^k p^r.}
+Note how the second parameter \eqn{r} can be generalized to arbitrary
+positive reals which the currently documented function also does.
+
 As the negative binomial distribution has countably infinite support and
 this package only works with discrete distributions with finite support, the
-resulting \code{ddf} object approximates the negative binomial distribution.
+resulting \code{ddf} object can only approximate the negative binomial
+distribution.
 
 For this, the support is cut off at a large enough integer such that the
 overall probability is still close to 1.
