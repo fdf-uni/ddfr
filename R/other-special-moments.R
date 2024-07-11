@@ -49,6 +49,7 @@ skew <- function(dist) {
 #'
 #' @return A double.
 #' @export
+#' @seealso [excess_kurtosis()]
 #'
 #' @examples
 #' # The rademacher distribution has a very low kurtosis
@@ -74,6 +75,7 @@ kurtosis <- function(dist) {
 #'
 #' @return A double.
 #' @export
+#' @seealso [kurtosis()]
 #'
 #' @examples
 #' excess_kurtosis(unif(8))

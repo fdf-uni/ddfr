@@ -22,7 +22,7 @@ expected_value <- function(dist) {
   return(moment(dist, 1))
 }
 
-#' Calculate mode(s) of distributions
+#' Calculate modes of distributions
 #'
 #' @description
 #' This function calculates the mode of a distribution, given as a `ddf` object.
