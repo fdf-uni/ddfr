@@ -7,18 +7,40 @@
 zipf(N, s = 1)
 }
 \arguments{
-\item{N}{Total number of elements}
+\item{N}{A positive integer, the total number of elements}
 
-\item{s}{Exponent for the inverse power law (see details, default: 1)}
+\item{s}{A positive number, the exxponent for the inverse power law.
+See ‘Details.’ (Default: 1)}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the Zipf distribution with the given parameters.
 }
+\details{
+Zipf's law is an empirical law stating that the relative frequency of the
+\eqn{n}-th entry in a list of measured values, ordered in decreasing order,
+is inversely proportional to \eqn{n}.
+
+This can be generalized and formalized by the following inverse power law
+with exponent \eqn{s}:
+
+The generalized Zipf distribution on \eqn{N} symbols has support
+\eqn{\{1, \dots, N\}} on which its probability mass function is given by
+\deqn{p(k) = \frac{1}{H_{N, s}} \frac{1}{k^s},}
+where \eqn{H_{N, s}} is a generalized harmonic number:
+\deqn{H_{N, s} = \sum_{k=1}^{N} \frac{1}{k^s}.}
+
+For some examples where Zipf's law occurs and further details, we recommend
+the below linked Wikipedia article.
+}
 \examples{
+# The Zipf distribution on 5 elements
 zipf(5)
+}
+\references{
+\url{https://en.wikipedia.org/wiki/Zipf\%27s_law}
 }
 \seealso{
 Other distributions: 

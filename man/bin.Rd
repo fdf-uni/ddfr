@@ -11,15 +11,25 @@ efficiently.
 bin(n, p)
 }
 \arguments{
-\item{n}{Number of trials}
+\item{n}{An integer, the number of trials.}
 
-\item{p}{Success probability for each trial}
+\item{p}{A number between 0 and 1, the success probability for each trial.}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the binomial distribution with the given parameters.
+}
+\details{
+The binomial distribution with parameters \eqn{n} and \eqn{p} models the
+number of successes when conducting \eqn{n} independent experiments with each
+one being distributed according to the Bernoulli distribution with success
+probability \eqn{p} (see also \code{\link[=bernoulli]{bernoulli()}}).
+
+It has support \eqn{\{0, \dots, n\}} on which its probability mass function
+is given by
+\deqn{p(k) = \binom{n}{k} p^k (1-p)^{n-k}.}
 }
 \examples{
 # How often a six can be expected when

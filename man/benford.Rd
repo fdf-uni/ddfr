@@ -7,18 +7,32 @@
 benford(b)
 }
 \arguments{
-\item{b}{Base, integer which has to be at least 2}
+\item{b}{An integer, the base of the number system. Has to be at least 2.}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object describing Benford's law for the given base.
 }
+\details{
+Benford's law describes the phenomenon that in many real-life numerical data
+sets, leading digits tend to be small.
+
+For this, given an arbitrary base \eqn{b}, one can consider the distribution
+with support \eqn{\{1, \dots, b-1\}} on which the probability mass function
+\deqn{p(k) = \log_b \left( 1 + \frac{1}{k} \right)}
+is defined, where the subscript \eqn{b} denotes the base of the logarithm.
+
+For more information, we refer to the below linked Wikipedia article.
+}
 \examples{
-# Distribution of first digits,according
-# to Benford's law, in decimal system
+# Expected distribution of first digits,according
+# to Benford's law, in the decimal system
 benford(10)
+}
+\references{
+\url{https://en.wikipedia.org/wiki/Benford\%27s_law}
 }
 \seealso{
 Other distributions: 

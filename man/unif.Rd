@@ -7,22 +7,30 @@
 unif(n, start_at_one = TRUE)
 }
 \arguments{
-\item{n}{Upper bound of the support}
+\item{n}{An integer, the upper end of the support.}
 
-\item{start_at_one}{Whether to start the support at 0 or 1 (default: TRUE)}
+\item{start_at_one}{Logical, whether to start the support at 0 or 1
+(default: TRUE).}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
-Create a \code{ddf} object for the discrete uniform distribution with the given
-parameters.
+Create a \code{ddf} object for the discrete uniform distribution on the first
+\eqn{n} natural numbers (including or excluding 0).
 }
 \details{
-This function only generates the uniform distribution on support {1, ..., n}
-or {0, ..., n}. For more complicated supports, it's expected to be much
-easier to simply use \code{\link[=ddf]{ddf()}}, rather than using a custom function like this
-one, see also the examples below.
+The discrete uniform distribution describes models in which a finite number
+of possible outcomes are equally likely to happen.
+In general, it has an arbitrary finite set, say of cardinality
+\eqn{N\in\mathbb{N}}, as its support with every element of the support having
+the same probability \eqn{\frac{1}{N}}.
+
+This function, however, only generates the uniform distribution on support
+\eqn{\{1, \dots, n\}} or \eqn{\{0, \dots, n\}}. For more complicated supports,
+it's expected to be much easier to simply use \code{\link[=ddf]{ddf()}} without specifying
+probabilites, rather than using a custom function like this one.
+For a demonstration of this, see also the ‘Examples’ below.
 }
 \examples{
 # Probability distribution for modelling a

@@ -7,21 +7,39 @@
 negative_hypergeometric(N, K, r)
 }
 \arguments{
-\item{N}{Population size}
+\item{N}{A positive integer, the population size}
 
-\item{K}{Number of success states in the population}
+\item{K}{A non-negative integer, the number of success states in the
+population. Has to be less or equal to \code{N}.}
 
-\item{r}{Number of failures until the experiment is stopped}
+\item{r}{A non-negative integer, the number of failures until the experiment
+is stopped. Has to be less or eqal to \code{N}-\code{K}.}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the negative hypergeometric distribution with the
 given parameters.
 }
+\details{
+The negative hypergeometric distribution models the number of successes when
+drawing, \emph{without} replacement, elements from a finite population of size
+\eqn{N} which contains \eqn{K} success states \emph{until} precisely \eqn{r}
+failures have been found.
+
+It has support \eqn{\{0, \dots, K\}} on which its probability mass function
+is given by
+\deqn{p(k) = \frac{\binom{k+r-1}{k} \binom{N-r-k}{K-k}}{\binom{N}{K}}.}
+
+The beta-binomial distribution provides a generalization of the negative
+hypergeometric distribution, see \code{\link[=beta_binomial]{beta_binomial()}}.
+}
 \examples{
-hypergeometric(20, 6, 5)
+# Model how many blue marbles are drawn from an urn containing
+# 20 marbles of which 6 are blue, when one stops as soon
+# as one has found 5 non-blue marbles
+negative_hypergeometric(20, 6, 5)
 }
 \seealso{
 Other distributions: 

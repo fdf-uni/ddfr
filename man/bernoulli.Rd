@@ -7,14 +7,22 @@
 bernoulli(p)
 }
 \arguments{
-\item{p}{Success probability}
+\item{p}{A number between 0 and 1, the success probability.}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the Bernoulli distribution with the given
 parameters.
+}
+\details{
+The Bernoulli distribution with success probability \eqn{p} only has the two
+elements \eqn{0} and \eqn{1} as its support with the corresponding
+probability mass function being given by
+\deqn{p(k) = \begin{cases} p & \text{if } k = 1,\\ 1-p & \text{if } k = 0. \end{cases}}
+Hence, it can be used to model experiments asking a single yes-no question or
+experiments whose only outcomes are "success" and "failure".
 }
 \examples{
 # Distribution modelling a fair coin toss

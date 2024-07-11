@@ -7,14 +7,29 @@
 rademacher()
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the Rademacher distribution with the given
 parameters.
 }
+\details{
+The Rademacher distribution has support \eqn{\{-1,1\}} with both elements
+having probability \eqn{\frac{1}{2}} (that is, it is the discrete uniform
+distribution on \eqn{\{-1,1\}}).
+
+It can be used to model simple symmetric random walks with step size 1,
+especially when being convolved with itself (compare the ‘Examples’).
+}
 \examples{
 rademacher()
+
+# Modelling a symmetric random walk starting at 0
+# with step size 1 of length 4
+conv_n(rademacher(), 4)
+}
+\references{
+\url{https://en.wikipedia.org/wiki/Rademacher_distribution}
 }
 \seealso{
 Other distributions: 

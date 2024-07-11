@@ -11,23 +11,35 @@ efficiently.
 hypergeometric(N, K, n)
 }
 \arguments{
-\item{N}{Population size}
+\item{N}{A positive integer, the population size.}
 
-\item{K}{Number of success states in the population}
+\item{K}{A non-negative integer, the number of success states in the
+population. Has to be less or equal to \code{N}.}
 
-\item{n}{Number of draws}
+\item{n}{A non-negative integer, the number of draws. Has to be less or equal
+to \code{N}.}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the hypergeometric distribution with the given
 parameters.
 }
+\details{
+The hypergeometric distribution models the number of successes when drawing
+\eqn{n} elements, \emph{without} replacement, from a finite population of size
+\eqn{N} which contains \eqn{K} success states.
+
+It has support
+\deqn{\{\max(0, n+K-N), \dots, \min(n, K)\}}
+on which its probability mass function is given by
+\deqn{p(k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}}.}
+}
 \examples{
-# Model the total number of white marbles when
+# Model the total number of blue marbles when
 # drawing 5 marbles from an urn containing
-# 6 white marbles and 20 marbles in total
+# 6 blue marbles and 20 marbles in total
 hypergeometric(20, 6, 5)
 }
 \seealso{

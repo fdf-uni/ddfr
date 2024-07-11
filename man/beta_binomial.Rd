@@ -7,19 +7,48 @@
 beta_binomial(n, alpha, beta)
 }
 \arguments{
-\item{n}{Number of trials}
+\item{n}{A non-negative integer, the number of trials.}
 
-\item{alpha, beta}{Shape parameters for the underlying beta distribution}
+\item{alpha, beta}{Positive numbers, the shape parameters for the underlying
+beta distribution. See ‘Details.’}
 }
 \value{
-A \code{ddf} distribution as described above
+A \code{ddf} distribution as described above.
 }
 \description{
 Create a \code{ddf} object for the beta-binomial distribution with the given
 parameters.
 }
+\details{
+The beta-binomial distribution is a modification of the binomial distribution
+(see also \code{\link[=bin]{bin()}}) in which the success probability of every experiment is
+not a fixed number \eqn{p}, but instead randomly drawn from a beta
+distribution in every experiment.
+
+Said rigorously, it has support \eqn{\{0, \dots, n\}} where \eqn{n} is the
+number of trials.
+On its support, its probability mass function is given by
+\deqn{p(k) = \binom{n}{k} \frac{B(k + \alpha, n - k + \beta)}{B(\alpha, \beta)}.}
+Here, \eqn{B(a, b) = \frac{\Gamma(a) \Gamma(b)}{\Gamma(a + b)}} denotes the
+beta function (see also \code{\link[base:Special]{base::beta()}}).
+
+Note that if \eqn{\alpha} and \eqn{\beta} are both integers, it coincides
+with a negative hypergeometric distribution with parameters
+\eqn{N = n + \alpha + \beta - 1}, \eqn{K = n} and \eqn{r = \alpha},
+i.e. it generalizes the negative hypergeometric distribution
+(described in \code{\link[=negative_hypergeometric]{negative_hypergeometric()}}).
+This is also explored a bit in the ‘Examples’ below.
+}
 \examples{
 beta_binomial(4, 0.6, 2)
+
+# If all arguments are integers, it coincides with
+# a negative hypergeometric distribution
+beta_binomial(8, 5, 2)
+negative_hypergeometric(14, 8, 5)
+}
+\references{
+\url{https://en.wikipedia.org/wiki/Beta-binomial_distribution}
 }
 \seealso{
 Other distributions: 
