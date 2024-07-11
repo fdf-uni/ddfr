@@ -22,7 +22,7 @@ parameters.
 This function only generates the uniform distribution on support {1, ..., n}
 or {0, ..., n}. For more complicated supports, it's expected to be much
 easier to simply use \code{\link[=ddf]{ddf()}}, rather than using a custom function like this
-one, see also the example below.
+one, see also the examples below.
 }
 \examples{
 # Probability distribution for modelling a

@@ -3,6 +3,11 @@
 # TODO: Add details to documentations describing what each distribution models,
 #       what its support is and how PMF is given.
 
+# Compare examples of ?integer()
+is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
+  abs(x - round(x)) < tol
+}
+
 #' The discrete uniform distribution
 #'
 #' @description
@@ -13,7 +18,7 @@
 #' This function only generates the uniform distribution on support {1, ..., n}
 #' or {0, ..., n}. For more complicated supports, it's expected to be much
 #' easier to simply use [ddf()], rather than using a custom function like this
-#' one, see also the example below.
+#' one, see also the examples below.
 #'
 #' @param n Upper bound of the support
 #' @param start_at_one Whether to start the support at 0 or 1 (default: TRUE)
@@ -33,8 +38,8 @@
 #' # Not possible using unif:
 #' ddf(seq(3,12,3))
 unif <- function(n, start_at_one = TRUE) {
-  # Check that n is large enough integer, compare examples of ?integer()
-  if (!(abs(n - round(n)) < .Machine$double.eps^0.5 & n >= start_at_one))
+  # Check that n is large enough integer
+  if (!(is.wholenumber(n) & n >= start_at_one))
     stop(paste(
       "Error: Argument 'n' must be a non-negative integer",
       "(strictly positive if start_at_one = TRUE)"
@@ -70,8 +75,8 @@ unif <- function(n, start_at_one = TRUE) {
 #' # throwing a six-sided dice thrice
 #' bin(3, 1/6)
 bin <- function(n, p) {
-  # Check that n is large enough integer, compare examples of ?integer()
-  if (!(abs(n - round(n)) < .Machine$double.eps^0.5 & n >= 0))
+  # Check that n is large enough integer
+  if (!(is.wholenumber(n) & n >= 0))
     stop("Error: Argument 'n' must be a non-negative integer")
   # Check that probability lies between 0 and 1
   if (!(0<=p & p<=1))
@@ -151,8 +156,8 @@ rademacher <- function() {
 #' # to Benford's law, in decimal system
 #' benford(10)
 benford <- function(b) {
-  # Check that b is large enough integer, compare examples of ?integer()
-  if (!(abs(b - round(b)) < .Machine$double.eps^0.5 & b >= 2))
+  # Check that b is large enough integer
+  if (!(is.wholenumber(b) & b >= 2))
     stop("Error: Argument 'b' must be an integer strictly greater than 1")
   supp <- 1 : (b-1)
   return(ddf(supp, log(1+1/supp, b), paste("Benford's law in base", b)))
@@ -173,8 +178,8 @@ benford <- function(b) {
 #' @examples
 #' zipf(5)
 zipf <- function(N, s = 1) {
-  # Check that N is large enough integer, compare examples of ?integer()
-  if (!(abs(N - round(N)) < .Machine$double.eps^0.5 & N >= 1))
+  # Check that N is large enough integer
+  if (!(is.wholenumber(N) & N >= 1))
     stop("Error: Argument 'N' must be a positive integer")
   # Check that s >= 0
   if (s<0)
@@ -210,14 +215,14 @@ zipf <- function(N, s = 1) {
 #' # 6 white marbles and 20 marbles in total
 #' hypergeometric(20, 6, 5)
 hypergeometric <- function(N, K, n) {
-  # Check that N is large enough integer, compare examples of ?integer()
-  if (!(abs(N - round(N)) < .Machine$double.eps^0.5 & N >= 0))
+  # Check that N is large enough integer
+  if (!(is.wholenumber(N) & N >= 0))
     stop("Error: Argument 'N' must be a non-negative integer")
   # Check that K is integer in {0, ..., N}
-  if (!(abs(K - round(K)) < .Machine$double.eps^0.5 & 0 <= K & K <= N))
+  if (!(is.wholenumber(K) & 0 <= K & K <= N))
     stop("Error: Argument 'K' must be an integer between 0 and 'N', inclusive")
   # Check that n is integer in {0, ..., N}
-  if (!(abs(n - round(n)) < .Machine$double.eps^0.5 & 0 <= n & n <= N))
+  if (!(is.wholenumber(n) & 0 <= n & n <= N))
     stop("Error: Argument 'n' must be an integer between 0 and 'N', inclusive")
   supp <- max(0, n+K-N) : min(n, K)
   probs <- dhyper(supp, K, N-K, n)
@@ -246,14 +251,14 @@ hypergeometric <- function(N, K, n) {
 #' @examples
 #' hypergeometric(20, 6, 5)
 negative_hypergeometric <- function(N, K, r) {
-  # Check that N is large enough integer, compare examples of ?integer()
-  if (!(abs(N - round(N)) < .Machine$double.eps^0.5 & N >= 0))
+  # Check that N is large enough integer
+  if (!(is.wholenumber(N) & N >= 0))
     stop("Error: Argument 'N' must be a non-negative integer")
   # Check that K is integer in {0, ..., N}
-  if (!(abs(K - round(K)) < .Machine$double.eps^0.5 & 0 <= K & K <= N))
+  if (!(is.wholenumber(K) & 0 <= K & K <= N))
     stop("Error: Argument 'K' must be an integer between 0 and 'N', inclusive")
   # Check that r is integer in {0, ..., N - K}
-  if (!(abs(r - round(r)) < .Machine$double.eps^0.5 & 0 <= r & r <= N - K))
+  if (!(is.wholenumber(r) & 0 <= r & r <= N - K))
     stop("Error: Argument 'r' must be an integer between 0 and 'N'-'K', inclusive")
   # Ensure proper support when r = 0
   if (r == 0) {
@@ -287,8 +292,8 @@ negative_hypergeometric <- function(N, K, r) {
 #' @examples
 #' beta_binomial(4, 0.6, 2)
 beta_binomial <- function(n, alpha, beta) {
-  # Check that n is large enough integer, compare examples of ?integer()
-  if (!(abs(n - round(n)) < .Machine$double.eps^0.5 & n >= 0))
+  # Check that n is large enough integer
+  if (!(is.wholenumber(n) & n >= 0))
     stop("Error: Argument 'n' must be a non-negative integer")
   # Check that alpha > 0
   if (alpha<=0)
