@@ -17,10 +17,10 @@
 #' basis which makes it possible to also calculate the convolution if the
 #' domains are not (subsets of) \eqn{\mathbb{Z}} (but of course still discrete).
 #'
-#' For a interpretation of the convolution, recall that given two independent
-#' random variables \eqn{X} and \eqn{Y} with probability mass functions \eqn{p_X}
-#' and \eqn{p_Y}, the sum \eqn{X + Y} has probability mass function
-#' \eqn{p_X \ast p_Y}.
+#' For a stochastic interpretation of the convolution, recall that given two
+#' independent random variables \eqn{X} and \eqn{Y} with probability mass
+#' functions \eqn{p_X} and \eqn{p_Y}, the sum \eqn{X + Y} has probability mass
+#' function \eqn{p_X \ast p_Y}.
 #' Hence, convolving two `ddf` distributions gives the distribution corresponding
 #' to their sum.
 #'
@@ -41,6 +41,8 @@
 #' # Calculate the distribution of the sum of throwing a dice twice
 #' dice <- ddf(1:6)
 #' conv(dice, dice, desc = "Distribution of throwing a dice twice")
+#' # (Up to description) equivalent call using generic method
+#' dice*dice
 #'
 #' # Note that for distributions which are approximated,
 #' # errors can propagate when convolving:

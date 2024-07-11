@@ -247,6 +247,14 @@ setMethod("-", c("ddf", "missing"), function(e1, e2){
   return(ddf(-supp(e1), probs(e1), desc(e1)))
 })
 
+#' @export
+#' @rdname conv
+#' @param e1 `ddf` object, the first distribution.
+#' @param e2 `ddf` object, the second distribution.
+setMethod("*", c("ddf", "ddf"), function(e1, e2){
+  return(conv(e1, e2))
+})
+
 # Create custom text when showing/printing a `ddf` object
 setMethod("show", "ddf", function(object) {
   cat(
