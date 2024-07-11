@@ -22,3 +22,6 @@ only refer to the linked help page for some more details.
 \examples{
 excess_kurtosis(unif(8))
 }
+\seealso{
+\code{\link[=kurtosis]{kurtosis()}}
+}

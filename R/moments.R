@@ -87,6 +87,7 @@ central_moment <- function(dist, n) {
 #' standardized_moment(unif(10), 2)
 #'
 #' # The third standardized moment measures skewness
+#' # (compare ?skew())
 #' standardized_moment(bin(10, 0.8), 3)
 standardized_moment <- function(dist, n) {
   return(central_moment(dist, n) / central_moment(dist, 2)^(n/2))

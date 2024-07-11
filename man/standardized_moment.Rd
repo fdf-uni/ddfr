@@ -33,6 +33,7 @@ normalizations are used.
 standardized_moment(unif(10), 2)
 
 # The third standardized moment measures skewness
+# (compare ?skew())
 standardized_moment(bin(10, 0.8), 3)
 }
 \seealso{

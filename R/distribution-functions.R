@@ -1,8 +1,8 @@
 #' Probability mass function
 #'
 #' @description
-#' Create an `R` function which behaves like the probability mass function of a
-#' given `ddf` distribution.
+#' Create an `R` function which behaves like the probability mass function (PMF)
+#' of a given `ddf` distribution.
 #'
 #' @details
 #' The probability mass function \eqn{p_X} of a discrete random variable \eqn{X}
@@ -28,7 +28,7 @@ pmf <- function(dist) {
 #'
 #' @description
 #' Create an `R` function which behaves like the cumulative distribution
-#' function of a given `ddf` distribution.
+#' function (CDF) of a given `ddf` distribution.
 #'
 #' @details
 #' The cumulative distribution function \eqn{F_X} of a discrete random variable

@@ -13,8 +13,8 @@ pmf(dist)
 A function.
 }
 \description{
-Create an \code{R} function which behaves like the probability mass function of a
-given \code{ddf} distribution.
+Create an \code{R} function which behaves like the probability mass function (PMF)
+of a given \code{ddf} distribution.
 }
 \details{
 The probability mass function \eqn{p_X} of a discrete random variable \eqn{X}

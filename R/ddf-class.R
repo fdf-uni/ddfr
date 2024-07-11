@@ -55,7 +55,7 @@ setClass(
 
 
 
-# == Constructor ==
+# == Constructors ==
 
 #' Create new `ddf` objects
 #'
@@ -84,8 +84,10 @@ setClass(
 #' @examples
 #' # Create ddf object for an ordinary six-sided dice
 #' dice <- ddf(1:6, desc = "Distribution modelling a six-sided dice")
+#' dice
 #' # Create ddf object for an unfair coin toss without custom description
 #' coin_toss <- ddf(c(1,2), c(1/4, 3/4))
+#' coin_toss
 ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discrete distribution with finite support") {
   # Remove possible duplicates from the support
   if(any(duplicated(supp))) {
@@ -98,6 +100,63 @@ ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discr
       "ddf",
       # Order support and probabilities
       supp = sort(supp), probs = probs[order(supp)],
+      desc = desc
+    )
+  )
+}
+
+
+#' Create new `ddf` objects from absolute frequencies
+#'
+#' @description
+#' Use this function to create a new `ddf` object based on absolute frequencies
+#' by passing the ocurred observations and corresponding absolute frequencies
+#' as vectors to it.
+#'
+#' @details
+#' Although the purpose of this package is to work with discrete distributions
+#' with finite support, it might still be helpful to use some of its functions
+#' for working with frequency counts. For example, one might want to calculate
+#' an interquartile range or the excess kurtosis.
+#'
+#' The purpose of this function is to make this possible in a convenient way.
+#' A new `ddf` object is created by dividing all frequency counts by the total
+#' number of observations such that the resulting vector sums up to 1.
+#'
+#' This function furthermore ensures the same quality checks as [ddf()] (see the
+#' ‘Details.’ section) and has the same behaviour when no frequencies are
+#' passed, i.e. the probabilities are distributed uniformly over the specified
+#' observations.
+#'
+#' @param events A numeric vector representing the event space.
+#' @param frequencies A numeric vector containing the absolute frequency of
+#' every observed event.
+#' @param desc A short description of the discrete distribution.
+#'
+#' @return A `ddf` object with the specified properties.
+#' @export
+#'
+#' @examples
+#' # Create ddf object from (hypothetical) frequencies
+#' # of tossing a fair coin 10 times
+#' coin_tosses <- ddf_from_frequencies(c(1,2), c(3,7))
+#' coin_tosses
+ddf_from_frequencies <- function(
+    events, frequencies = rep(1/length(events), length(events)),
+    desc = paste("A discrete distribution with finite support,",
+                 "generated from frequencies")
+) {
+  # Remove possible duplicates from the event space
+  if(any(duplicated(events))) {
+    cleaned <- aggregate(frequencies, by = list(events = events), FUN = sum)
+    events <- cleaned$events
+    frequencies <- cleaned$x
+  }
+  return(
+    new(
+      "ddf",
+      # Order support and probabilities
+      supp = sort(events), probs = frequencies[order(events)]/sum(frequencies),
       desc = desc
     )
   )
@@ -193,3 +252,33 @@ setMethod("show", "ddf", function(object) {
 
 # Calculate mean
 setMethod("mean", "ddf", function(x, ...) moment(x, 1))
+
+# Plotting
+#' Plot a distribution
+#'
+#' @description
+#' Create a plot of a `ddf` distribution.
+#'
+#' @param x A `ddf` object, the distribution.
+#' @param xlab The label for the \eqn{x}-axis.
+#' @param ylab The label for the \eqn{y}-axis.
+#' @param col The color for the points of the plot.
+#' @param main An overall title of the plot.
+#' @param sub A subtitle for the plot.
+#' @param y Unused argument. Has to be missing.
+#'
+#' @return A `ggplot` object displaying the given distribution.
+#' @export
+#' @family {plotting functions}
+#'
+#' @examples
+#' plot(pois(8))
+setMethod("plot", c("ddf", "missing"), function(
+    x, xlab = "support", ylab = "probabilities",
+    col = "deepskyblue3", main = NULL, sub = NULL, y
+) {
+  ggplot(mapping = aes(x = supp(x), y = probs(x))) +
+    geom_col(fill = col) +
+    labs(x = xlab, y = ylab, title = main, subtitle = sub) +
+    theme_light()
+})

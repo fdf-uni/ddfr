@@ -31,3 +31,6 @@ kurtosis(rademacher())
 # has rather high kurtosis
 kurtosis(bin(10, 1e-4))
 }
+\seealso{
+\code{\link[=excess_kurtosis]{excess_kurtosis()}}
+}

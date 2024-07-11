@@ -40,6 +40,8 @@ specified support.
 \examples{
 # Create ddf object for an ordinary six-sided dice
 dice <- ddf(1:6, desc = "Distribution modelling a six-sided dice")
+dice
 # Create ddf object for an unfair coin toss without custom description
 coin_toss <- ddf(c(1,2), c(1/4, 3/4))
+coin_toss
 }

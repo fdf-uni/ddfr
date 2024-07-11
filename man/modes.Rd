@@ -2,7 +2,7 @@
 % Please edit documentation in R/central-tendency.R
 \name{modes}
 \alias{modes}
-\title{Calculate mode(s) of distributions}
+\title{Calculate modes of distributions}
 \usage{
 modes(dist, method = "all")
 }

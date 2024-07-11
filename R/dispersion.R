@@ -9,7 +9,7 @@
 #'
 #' It is a measure of dispersions, i.e. it measures how much the mass of a
 #' distribution is spread around its mean. A lower variance indicates that
-#' values are to be expected close to the mean.
+#' values are to be expected closer to the mean.
 #'
 #' @param dist A `ddf` object, the distribution.
 #'

@@ -14,7 +14,7 @@ A function.
 }
 \description{
 Create an \code{R} function which behaves like the cumulative distribution
-function of a given \code{ddf} distribution.
+function (CDF) of a given \code{ddf} distribution.
 }
 \details{
 The cumulative distribution function \eqn{F_X} of a discrete random variable

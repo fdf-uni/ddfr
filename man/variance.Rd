@@ -21,7 +21,7 @@ corresponding help, i.e. \code{\link[=central_moment]{central_moment()}}.
 
 It is a measure of dispersions, i.e. it measures how much the mass of a
 distribution is spread around its mean. A lower variance indicates that
-values are to be expected close to the mean.
+values are to be expected closer to the mean.
 }
 \examples{
 # Variance of a binomial distribution
