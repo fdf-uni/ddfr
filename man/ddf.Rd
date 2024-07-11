@@ -32,6 +32,8 @@ following two conditions:
 \item The passed support is ordered in ascending order.
 \item Duplicates within the support are removed and the probabilities of the
 affected elements are simply summed up.
+\item Elements of the passed "support" that have probability 0 are removed as
+they then, by definition, are not contained in the support.
 }
 
 If the probabilities aren't supplied, they are distributed uniformly over the

@@ -3,9 +3,11 @@
 
 #' Convolve two discrete distributions
 #'
+#' @description
 #' `convolve_cpp` returns the convolution of two discrete distributions given
 #' their supports and the corresponding probabilities.
 #'
+#' @details
 #' Some assumptions are made for the function to work properly which should be
 #' followed. Most importantly, corresponding numeric vectors (e.g. `supp1` and
 #' `probs1`) should have the same length.
@@ -14,6 +16,7 @@
 #' which give the matching attributes of the convolution.
 #'
 #' @export
+#' @family {convolution functions}
 #' @param supp1,probs1 Numeric vectors of the same length.
 #' @param supp2,probs2 Numeric vectors of the same length.
 #' @return A list.

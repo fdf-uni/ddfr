@@ -30,3 +30,9 @@ which give the matching attributes of the convolution.
 # Calculate the probability distribution of the sum of two six-sided dice
 convolve_cpp((1:6), rep(1/6, 6), (1:6), rep(1/6, 6))
 }
+\seealso{
+Other {convolution functions}: 
+\code{\link{conv}()},
+\code{\link{conv_n}()}
+}
+\concept{{convolution functions}}

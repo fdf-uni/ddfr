@@ -69,6 +69,8 @@ setClass(
 #' * The passed support is ordered in ascending order.
 #' * Duplicates within the support are removed and the probabilities of the
 #'   affected elements are simply summed up.
+#' * Elements of the passed "support" that have probability 0 are removed as
+#'   they then, by definition, are not contained in the support.
 #'
 #' If the probabilities aren't supplied, they are distributed uniformly over the
 #' specified support.
@@ -95,6 +97,9 @@ ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discr
     supp <- cleaned$supp
     probs <- cleaned$x
   }
+  # Remove supp elements with probability zero
+  supp <- supp[probs != 0]
+  probs <- probs[probs != 0]
   return(
     new(
       "ddf",
@@ -146,20 +151,7 @@ ddf_from_frequencies <- function(
     desc = paste("A discrete distribution with finite support,",
                  "generated from frequencies")
 ) {
-  # Remove possible duplicates from the event space
-  if(any(duplicated(events))) {
-    cleaned <- aggregate(frequencies, by = list(events = events), FUN = sum)
-    events <- cleaned$events
-    frequencies <- cleaned$x
-  }
-  return(
-    new(
-      "ddf",
-      # Order support and probabilities
-      supp = sort(events), probs = frequencies[order(events)]/sum(frequencies),
-      desc = desc
-    )
-  )
+  return(ddf(events, frequencies/sum(frequencies), desc))
 }
 
 
@@ -241,6 +233,20 @@ setMethod("desc<-", "ddf", function(dist, value){
 
 # == Further methods ==
 
+#' Multiply support of a distribution with -1
+#'
+#' @param e1 A `ddf` distribution
+#' @param e2 Unused argument. Has to be missing.
+#'
+#' @return A `ddf` distribution.
+#' @export
+#'
+#' @examples
+#' -bin(5, 0.1)
+setMethod("-", c("ddf", "missing"), function(e1, e2){
+  return(ddf(-supp(e1), probs(e1), desc(e1)))
+})
+
 # Create custom text when showing/printing a `ddf` object
 setMethod("show", "ddf", function(object) {
   cat(
@@ -251,7 +257,10 @@ setMethod("show", "ddf", function(object) {
 })
 
 # Calculate mean
-setMethod("mean", "ddf", function(x, ...) moment(x, 1))
+#' @export
+#' @rdname expected_value
+#' @param x `ddf` object, the distribution.
+setMethod("mean", "ddf", function(x){moment(x, 1)})
 
 # Plotting
 #' Plot a distribution

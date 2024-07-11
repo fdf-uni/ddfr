@@ -9,26 +9,27 @@ conv_n(dist, n, desc = paste(n, "-fold convolution of", desc(dist)))
 \arguments{
 \item{dist}{A \code{ddf} distribution}
 
-\item{n}{A integer specifying number of convolutions to perform}
+\item{n}{An integer specifying number of convolutions to perform}
 
 \item{desc}{The description for the resulting \code{ddf} object (optional)}
 }
 \value{
-n-fold convolution as a \code{ddf} object
+n-fold convolution as a \code{ddf} object.
 }
 \description{
 Using this function, a distribution, given as a \code{ddf} object, can be
 convolved with itself n times.
 }
 \details{
-Under the hood, this functions uses a \verb{C++} implementation for calculating
-the convolution in order to get significant performance gains, compare
-\code{\link[=convolve_cpp]{convolve_cpp()}}.
+For more details, see \code{\link[=conv]{conv()}}.
 }
 \examples{
 # Calculate the distribution of the sum of throwing a dice four times
 conv_n(ddf(1:6), 4, desc = "Distribution of throwing a dice four times")
 }
 \seealso{
-\code{\link[=convolve_cpp]{convolve_cpp()}},\code{\link[=conv]{conv()}}
+Other {convolution functions}: 
+\code{\link{conv}()},
+\code{\link{convolve_cpp}()}
 }
+\concept{{convolution functions}}

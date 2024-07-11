@@ -3,6 +3,11 @@
 \name{conv}
 \alias{conv}
 \title{Convolve two discrete distributions}
+\source{
+Under the hood, this functions uses a \verb{C++} implementation for calculating
+the convolution in order to get significant performance gains, compare
+\code{\link[=convolve_cpp]{convolve_cpp()}}.
+}
 \usage{
 conv(dist1, dist2, desc = "A convolution")
 }
@@ -14,22 +19,50 @@ conv(dist1, dist2, desc = "A convolution")
 \item{desc}{The description for the resulting \code{ddf} object (optional)}
 }
 \value{
-Convolution as a \code{ddf} object
+Convolution as a \code{ddf} object.
 }
 \description{
 Using this function, two distributions, given as \code{ddf} objects, can be
 convolved.
 }
 \details{
-Under the hood, this functions uses a \verb{C++} implementation for calculating
-the convolution in order to get significant performance gains, compare
-\code{\link[=convolve_cpp]{convolve_cpp()}}.
+In general, given two functions \eqn{f} and \eqn{g} defined on the set
+\eqn{\mathbb{Z}} of integers, the \strong{discrete convolution} of \eqn{f} and
+\eqn{g} is given by
+\deqn{(f \ast g)(n) = \sum_{m=-\infty}^{\infty} f(n-m) g(m).}
+Note how the sum on the right hand side ranges over all products where the
+arguments of \eqn{f} and \eqn{g} are integers \eqn{k,l\in\mathbb{Z}}
+such that \eqn{k+l=n}.
+
+This implementation of the convolution uses this last observation as its
+basis which makes it possible to also calculate the convolution if the
+domains are not (subsets of) \eqn{\mathbb{Z}} (but of course still discrete).
+
+For a interpretation of the convolution, recall that given two random
+variables \eqn{X} and \eqn{Y} with probability mass functions \eqn{p_X} and
+\eqn{p_Y}, the sum \eqn{X + Y} has distribution \eqn{p_X \ast p_Y}.
+Hence, convolving two \code{ddf} distributions gives the distribution corresponding
+to their sum.
 }
 \examples{
 # Calculate the distribution of the sum of throwing a dice twice
 dice <- ddf(1:6)
 conv(dice, dice, desc = "Distribution of throwing a dice twice")
+
+# Note that for distributions which are approximated,
+# errors can propagate when convolving:
+try(conv(unif(5), geometric(0.9)))
+# This can be corrected by using a better approximation
+conv(unif(5), geometric(0.9, eps=1e-11))
+
+# When one is interested in the difference instead of
+# the sum, one can use the generic `-` which multiplies
+# the support of a distribution with -1
+conv(unif(6), -unif(6))
 }
 \seealso{
-\code{\link[=convolve_cpp]{convolve_cpp()}},\code{\link[=conv_n]{conv_n()}}
+Other {convolution functions}: 
+\code{\link{conv_n}()},
+\code{\link{convolve_cpp}()}
 }
+\concept{{convolution functions}}

@@ -5,11 +5,22 @@
 #' with finite support given as a `ddf` object.
 #'
 #' @details
-#' Alternatively, you can also simply use the generic method `mean()`.
+#' The expected value of a discrete random variable \eqn{X} with finite support
+#' \eqn{\{x_1, \dots, x_n\}} and corresponding probabilities
+#' \eqn{p_1, \dots, p_n} is defined as the weighted average of the \eqn{x_k}
+#' values with weights \eqn{p_k},
+#' \deqn{E[X] := \sum_{k=1}^n x_k p_k.}
+#' As we only work with discrete distributions with finite support, we don't
+#' provide a more general definition using the tools from measure theory and
+#' instead content ourselves with the basic one above.
 #'
-#' @param dist `ddf` object, the distribution
+#' Note that there are two ways to use this function, one being
+#' `expected_value()` and the other one being the S4 generic method `mean()`.
+#' See also ‘Examples.’
 #'
-#' @return A double
+#' @param dist `ddf` object, the distribution.
+#'
+#' @return A double.
 #' @export
 #'
 #' @examples
