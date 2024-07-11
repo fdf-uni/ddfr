@@ -7,12 +7,12 @@
 modes(dist, method = "all")
 }
 \arguments{
-\item{dist}{\code{ddf} object, the distribution}
+\item{dist}{A \code{ddf} object, the distribution.}
 
-\item{method}{Character specyfing output format}
+\item{method}{A character specifying the output format.}
 }
 \value{
-A numeric vector
+A numeric vector.
 }
 \description{
 This function calculates the mode of a distribution, given as a \code{ddf} object.

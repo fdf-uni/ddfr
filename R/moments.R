@@ -11,10 +11,10 @@
 #' \deqn{E[X^n],}
 #' where \eqn{E} is the expectation operator.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param n Order of the moment
+#' @param dist A `ddf` object, the distribution.
+#' @param n An integer, the order of the moment.
 #'
-#' @return A double
+#' @return A double.
 #' @export
 #' @family moments
 #'
@@ -36,10 +36,10 @@ moment <- function(dist, n) {
 #' \deqn{E[(X - E[X])^n],}
 #' where \eqn{E} is the expectation operator.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param n Order of the moment
+#' @param dist A `ddf` object, the distribution.
+#' @param n An integer, the order of the moment.
 #'
-#' @return A double
+#' @return A double.
 #' @export
 #' @family moments
 #'
@@ -75,10 +75,10 @@ central_moment <- function(dist, n) {
 #' Note that we here normalize with \eqn{\sigma^n}, although sometimes other
 #' normalizations are used.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param n Order of the moment
+#' @param dist A `ddf` object, the distribution.
+#' @param n An integer, the order of the moment.
 #'
-#' @return A double
+#' @return A double.
 #' @export
 #' @family moments
 #'

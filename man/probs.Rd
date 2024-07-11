@@ -10,13 +10,14 @@ probs(dist)
 \S4method{probs}{ddf}(dist)
 }
 \arguments{
-\item{dist}{A \code{ddf} object}
+\item{dist}{A \code{ddf} object, the distribution.}
 }
 \value{
-Probabilities on the support as a numerical vector.
+Probabilities as a numerical vector.
 }
 \description{
-Get the probabilities of a \code{ddf} object
+This function returns the probabilities of elements of the
+support of a given distribution as a numerical vector.
 }
 \examples{
 probs(ddf(1:3))

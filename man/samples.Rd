@@ -15,7 +15,7 @@ samples(dist, n)
 \item{n}{A non-negative integer giving the number of items to choose.}
 }
 \value{
-A vector of length \code{size} with elements drawn from the distributions
+A vector of length \code{n} with elements drawn from the distributions
 support.
 }
 \description{

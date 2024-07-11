@@ -7,14 +7,14 @@
 quantiles(dist, p, method = "all")
 }
 \arguments{
-\item{dist}{\code{ddf} object, the distribution}
+\item{dist}{A \code{ddf} object, the distribution.}
 
-\item{p}{Number between 0 and 1, exclusive}
+\item{p}{A number between 0 and 1, exclusive.}
 
-\item{method}{Character specyfing output format}
+\item{method}{A character specifying the output format.}
 }
 \value{
-A numeric vector
+A numeric vector.
 }
 \description{
 This function calculates \eqn{p}-quantiles of a \code{ddf} distribution.

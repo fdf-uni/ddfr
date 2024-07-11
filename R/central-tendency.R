@@ -18,7 +18,7 @@
 #' `expected_value()` and the other one being the S4 generic method `mean()`.
 #' See also ‘Examples.’
 #'
-#' @param dist `ddf` object, the distribution.
+#' @param dist A `ddf` object, the distribution.
 #'
 #' @return A double.
 #' @export
@@ -52,10 +52,10 @@ expected_value <- function(dist) {
 #' * If `method` is set to "min" or "max", the respective elements of all
 #'   modes are returned.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param method Character specyfing output format
+#' @param dist A `ddf` object, the distribution.
+#' @param method A character specifying the output format.
 #'
-#' @return A numeric vector
+#' @return A numeric vector.
 #' @export
 #'
 #' @examples
@@ -100,10 +100,10 @@ modes <- function(dist, method = "all") {
 #' For details consult the details of [quantile()] and recall that a median is a
 #' \eqn{\frac{1}{2}}-quantile and vice versa.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param method Character specyfing output format
+#' @param dist A `ddf` object, the distribution.
+#' @param method A character specifying output format.
 #'
-#' @return A numeric vector
+#' @return A numeric vector.
 #' @export
 #'
 #' @examples

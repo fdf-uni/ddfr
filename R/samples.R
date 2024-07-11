@@ -9,7 +9,7 @@
 #' @param dist A `ddf` object, the distribution.
 #' @param n A non-negative integer giving the number of items to choose.
 #'
-#' @return A vector of length `size` with elements drawn from the distributions
+#' @return A vector of length `n` with elements drawn from the distributions
 #' support.
 #' @export
 #'

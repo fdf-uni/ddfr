@@ -8,7 +8,7 @@
 #' \eqn{\mathcal{X}} and probability mass function \eqn{p} is defined as
 #' \deqn{\Eta = - \sum_{x\in\mathcal{X}} p(x) \log_b(p(x)),}
 #' where \eqn{b} denotes the base of the logarithm being used.
-#' Common values for \eqn{b} are \eqn{2}, euler's constant \eqn{e} or \eqn{10}
+#' Common values for \eqn{b} are \eqn{2}, Euler's constant \eqn{e} or \eqn{10}
 #' and the corresponding units of entropy are "bits" (or "shannons"), "nats" and
 #' "bans" (also called "hartleys" or "dits"), respectively.
 #'

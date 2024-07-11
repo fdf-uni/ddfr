@@ -12,19 +12,18 @@ ddf_from_frequencies(
 )
 }
 \arguments{
-\item{events}{A numeric vector representing the event space.}
+\item{events}{A numeric vector, the event space.}
 
-\item{frequencies}{A numeric vector containing the absolute frequency of
-every observed event.}
+\item{frequencies}{A numeric vector, the corresponding absolute frequencies.}
 
-\item{desc}{A short description of the discrete distribution.}
+\item{desc}{A character, a short description of the discrete distribution.}
 }
 \value{
-A \code{ddf} object with the specified properties.
+A \code{ddf} object as described above.
 }
 \description{
 Use this function to create a new \code{ddf} object based on absolute frequencies
-by passing the ocurred observations and corresponding absolute frequencies
+by passing the occurred observations and corresponding absolute frequencies
 as vectors to it.
 }
 \details{

@@ -7,7 +7,7 @@
 \S4method{-}{ddf,missing}(e1, e2)
 }
 \arguments{
-\item{e1}{A \code{ddf} distribution}
+\item{e1}{A \code{ddf} object, the distribution.}
 
 \item{e2}{Unused argument. Has to be missing.}
 }

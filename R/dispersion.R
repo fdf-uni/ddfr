@@ -32,7 +32,7 @@ variance <- function(dist) {
 #'
 #' @details
 #' The standard deviation is the square root of the variance (which itself is
-#' the 2nd central moment). For more details see [variance()] or better directly
+#' the second central moment). For more details see [variance()] or better directly
 #' [central_moment()].
 #'
 #' @param dist A `ddf` object, the distribution.

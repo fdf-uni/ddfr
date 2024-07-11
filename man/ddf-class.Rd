@@ -27,11 +27,10 @@ tolerance for this is set to \code{1e-10}.
 \section{Slots}{
 
 \describe{
-\item{\code{supp}}{A numeric vector representing the support}
+\item{\code{supp}}{A numeric vector, the support.}
 
-\item{\code{probs}}{A numeric vector containing the probabilities
-corresponding to the elements of the support}
+\item{\code{probs}}{A numeric vector, the corresponding probabilities.}
 
-\item{\code{desc}}{A short description of the discrete distribution}
+\item{\code{desc}}{A character, a short description of the discrete distribution.}
 }}
 

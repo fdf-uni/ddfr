@@ -7,9 +7,9 @@
 zipf(N, s = 1)
 }
 \arguments{
-\item{N}{A positive integer, the total number of elements}
+\item{N}{A positive integer, the total number of elements.}
 
-\item{s}{A positive number, the exxponent for the inverse power law.
+\item{s}{A positive number, the exponent for the inverse power law.
 See ‘Details.’ (Default: 1)}
 }
 \value{

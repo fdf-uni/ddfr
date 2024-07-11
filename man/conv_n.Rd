@@ -7,18 +7,18 @@
 conv_n(dist, n, desc = paste(n, "-fold convolution of", desc(dist)))
 }
 \arguments{
-\item{dist}{A \code{ddf} distribution}
+\item{dist}{A \code{ddf} object, the distribution.}
 
-\item{n}{An integer specifying number of convolutions to perform}
+\item{n}{An integer specifying the number of convolutions to perform.}
 
-\item{desc}{The description for the resulting \code{ddf} object (optional)}
+\item{desc}{The description for the resulting \code{ddf} object. (optional)}
 }
 \value{
-n-fold convolution as a \code{ddf} object.
+\eqn{n}-fold convolution as a \code{ddf} object.
 }
 \description{
 Using this function, a distribution, given as a \code{ddf} object, can be
-convolved with itself n times.
+convolved with itself \eqn{n} times.
 }
 \details{
 For more details, see \code{\link[=conv]{conv()}}.

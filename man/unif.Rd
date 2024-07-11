@@ -29,7 +29,7 @@ the same probability \eqn{\frac{1}{N}}.
 This function, however, only generates the uniform distribution on support
 \eqn{\{1, \dots, n\}} or \eqn{\{0, \dots, n\}}. For more complicated supports,
 it's expected to be much easier to simply use \code{\link[=ddf]{ddf()}} without specifying
-probabilites, rather than using a custom function like this one.
+probabilities, rather than using a custom function like this one.
 For a demonstration of this, see also the ‘Examples’ below.
 }
 \examples{

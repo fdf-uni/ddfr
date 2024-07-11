@@ -15,11 +15,11 @@ conv(dist1, dist2, desc = "A convolution")
 \S4method{*}{ddf,ddf}(e1, e2)
 }
 \arguments{
-\item{dist1}{\code{ddf} object, the first distribution}
+\item{dist1}{A \code{ddf} object, the first distribution.}
 
-\item{dist2}{\code{ddf} object, the second distribution}
+\item{dist2}{A \code{ddf} object, the second distribution.}
 
-\item{desc}{The description for the resulting \code{ddf} object (optional)}
+\item{desc}{A character, the description for the resulting \code{ddf} object (optional)}
 
 \item{e1}{\code{ddf} object, the first distribution.}
 

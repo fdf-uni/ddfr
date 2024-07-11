@@ -11,15 +11,14 @@ ddf(
 )
 }
 \arguments{
-\item{supp}{A numeric vector representing the support}
+\item{supp}{A numeric vector, support.}
 
-\item{probs}{A numeric vector containing the probabilities
-corresponding to the elements of the support}
+\item{probs}{A numeric vector, the corresponding probabilities}
 
-\item{desc}{A short description of the discrete distribution}
+\item{desc}{A character, a short description of the discrete distribution.}
 }
 \value{
-A \code{ddf} object with the specified properties
+A \code{ddf} object with the specified attributes.
 }
 \description{
 Use this function to create a new \code{ddf} object by passing the support and

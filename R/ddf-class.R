@@ -20,10 +20,9 @@
 #' * The probabilities have to sum up to approximately 1. Currently the
 #'   tolerance for this is set to `1e-10`.
 #'
-#' @slot supp A numeric vector representing the support
-#' @slot probs A numeric vector containing the probabilities
-#' corresponding to the elements of the support
-#' @slot desc A short description of the discrete distribution
+#' @slot supp A numeric vector, the support.
+#' @slot probs A numeric vector, the corresponding probabilities.
+#' @slot desc A character, a short description of the discrete distribution.
 setClass(
   "ddf",
   slots = list(
@@ -75,12 +74,11 @@ setClass(
 #' If the probabilities aren't supplied, they are distributed uniformly over the
 #' specified support.
 #'
-#' @param supp A numeric vector representing the support
-#' @param probs A numeric vector containing the probabilities
-#' corresponding to the elements of the support
-#' @param desc A short description of the discrete distribution
+#' @param supp A numeric vector, support.
+#' @param probs A numeric vector, the corresponding probabilities
+#' @param desc A character, a short description of the discrete distribution.
 #'
-#' @return A `ddf` object with the specified properties
+#' @return A `ddf` object with the specified attributes.
 #' @export
 #'
 #' @examples
@@ -115,7 +113,7 @@ ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discr
 #'
 #' @description
 #' Use this function to create a new `ddf` object based on absolute frequencies
-#' by passing the ocurred observations and corresponding absolute frequencies
+#' by passing the occurred observations and corresponding absolute frequencies
 #' as vectors to it.
 #'
 #' @details
@@ -133,12 +131,11 @@ ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discr
 #' passed, i.e. the probabilities are distributed uniformly over the specified
 #' observations.
 #'
-#' @param events A numeric vector representing the event space.
-#' @param frequencies A numeric vector containing the absolute frequency of
-#' every observed event.
-#' @param desc A short description of the discrete distribution.
+#' @param events A numeric vector, the event space.
+#' @param frequencies A numeric vector, the corresponding absolute frequencies.
+#' @param desc A character, a short description of the discrete distribution.
 #'
-#' @return A `ddf` object with the specified properties.
+#' @return A `ddf` object as described above.
 #' @export
 #'
 #' @examples
@@ -158,9 +155,17 @@ ddf_from_frequencies <- function(
 
 # == Getters ==
 
-#' Get the support of a `ddf` object
+#' The support
 #'
-#' @param dist A `ddf` object
+#' @description
+#' This function returns the support of a given distribution
+#' as a numerical vector.
+#'
+#' @details
+#' The support of a function is defined as the points in the
+#' function's domain where it is non-zero.
+#'
+#' @param dist A `ddf` object, the distribution.
 #'
 #' @return Support as a numerical vector.
 #' @export
@@ -175,9 +180,13 @@ setMethod("supp", "ddf", function(dist) dist@supp)
 
 #' Get the probabilities of a `ddf` object
 #'
-#' @param dist A `ddf` object
+#' @description
+#' This function returns the probabilities of elements of the
+#' support of a given distribution as a numerical vector.
 #'
-#' @return Probabilities on the support as a numerical vector.
+#' @param dist A `ddf` object, the distribution.
+#'
+#' @return Probabilities as a numerical vector.
 #' @export
 #'
 #' @examples
@@ -191,9 +200,12 @@ setMethod("probs", "ddf", function(dist) dist@probs)
 
 #' Get the description of a `ddf` object
 #'
-#' @param dist A `ddf` object
+#' @description
+#' This function returns the description of a given distribution.
 #'
-#' @return Description text of the `ddf` object.
+#' @param dist A `ddf` object, the distribution.
+#'
+#' @return A character, the description text of the `ddf` object.
 #' @export
 #'
 #' @examples
@@ -209,10 +221,10 @@ setMethod("desc", "ddf", function(dist) dist@desc)
 
 #' Set the description of a `ddf` object
 #'
-#' @param dist A `ddf` object
-#' @param value A character, new description
+#' @param dist A `ddf` object, the distribution.
+#' @param value A character, new description.
 #'
-#' @return Description text of the `ddf` object.
+#' @return New description text of the `ddf` object.
 #' @export
 #'
 #' @examples
@@ -235,7 +247,7 @@ setMethod("desc<-", "ddf", function(dist, value){
 
 #' Multiply support of a distribution with -1
 #'
-#' @param e1 A `ddf` distribution
+#' @param e1 A `ddf` object, the distribution.
 #' @param e2 Unused argument. Has to be missing.
 #'
 #' @return A `ddf` distribution.
@@ -244,7 +256,10 @@ setMethod("desc<-", "ddf", function(dist, value){
 #' @examples
 #' -bin(5, 0.1)
 setMethod("-", c("ddf", "missing"), function(e1, e2){
-  return(ddf(-supp(e1), probs(e1), desc(e1)))
+  return(ddf(
+    -supp(e1), probs(e1),
+    paste(desc(e1), ", flipped at the origin", sep = "")
+  ))
 })
 
 #' @export

@@ -10,7 +10,7 @@ expected_value(dist)
 \S4method{mean}{ddf}(x)
 }
 \arguments{
-\item{dist}{\code{ddf} object, the distribution.}
+\item{dist}{A \code{ddf} object, the distribution.}
 
 \item{x}{\code{ddf} object, the distribution.}
 }

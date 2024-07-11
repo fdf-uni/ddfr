@@ -21,7 +21,7 @@ is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
 #' This function, however, only generates the uniform distribution on support
 #' \eqn{\{1, \dots, n\}} or \eqn{\{0, \dots, n\}}. For more complicated supports,
 #' it's expected to be much easier to simply use [ddf()] without specifying
-#' probabilites, rather than using a custom function like this one.
+#' probabilities, rather than using a custom function like this one.
 #' For a demonstration of this, see also the ‘Examples’ below.
 #'
 #' @param n An integer, the upper end of the support.
@@ -236,8 +236,8 @@ benford <- function(b) {
 #' For some examples where Zipf's law occurs and further details, we recommend
 #' the below linked Wikipedia article.
 #'
-#' @param N A positive integer, the total number of elements
-#' @param s A positive number, the exxponent for the inverse power law.
+#' @param N A positive integer, the total number of elements.
+#' @param s A positive number, the exponent for the inverse power law.
 #' See ‘Details.’ (Default: 1)
 #'
 #' @return A `ddf` distribution as described above.
@@ -337,11 +337,11 @@ hypergeometric <- function(N, K, n) {
 #' The beta-binomial distribution provides a generalization of the negative
 #' hypergeometric distribution, see [beta_binomial()].
 #'
-#' @param N A positive integer, the population size
+#' @param N A positive integer, the population size.
 #' @param K A non-negative integer, the number of success states in the
 #' population. Has to be less or equal to `N`.
 #' @param r A non-negative integer, the number of failures until the experiment
-#' is stopped. Has to be less or eqal to `N`-`K`.
+#' is stopped. Has to be less or equal to `N`-`K`.
 #'
 #' @return A `ddf` distribution as described above.
 #' @export

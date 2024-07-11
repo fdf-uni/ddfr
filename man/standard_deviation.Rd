@@ -17,7 +17,7 @@ This function calculates the standard deviation of a \code{ddf} distribution.
 }
 \details{
 The standard deviation is the square root of the variance (which itself is
-the 2nd central moment). For more details see \code{\link[=variance]{variance()}} or better directly
+the second central moment). For more details see \code{\link[=variance]{variance()}} or better directly
 \code{\link[=central_moment]{central_moment()}}.
 }
 \examples{

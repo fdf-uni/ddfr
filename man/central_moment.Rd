@@ -7,12 +7,12 @@
 central_moment(dist, n)
 }
 \arguments{
-\item{dist}{\code{ddf} object, the distribution}
+\item{dist}{A \code{ddf} object, the distribution.}
 
-\item{n}{Order of the moment}
+\item{n}{An integer, the order of the moment.}
 }
 \value{
-A double
+A double.
 }
 \description{
 This function calculates the \eqn{n}-th central moment, also known as the

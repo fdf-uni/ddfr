@@ -10,13 +10,13 @@ desc(dist)
 \S4method{desc}{ddf}(dist)
 }
 \arguments{
-\item{dist}{A \code{ddf} object}
+\item{dist}{A \code{ddf} object, the distribution.}
 }
 \value{
-Description text of the \code{ddf} object.
+A character, the description text of the \code{ddf} object.
 }
 \description{
-Get the description of a \code{ddf} object
+This function returns the description of a given distribution.
 }
 \examples{
 desc(ddf(1:3))

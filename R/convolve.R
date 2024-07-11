@@ -29,9 +29,9 @@
 #' the convolution in order to get significant performance gains, compare
 #' [convolve_cpp()].
 #'
-#' @param dist1 `ddf` object, the first distribution
-#' @param dist2 `ddf` object, the second distribution
-#' @param desc The description for the resulting `ddf` object (optional)
+#' @param dist1 A `ddf` object, the first distribution.
+#' @param dist2 A `ddf` object, the second distribution.
+#' @param desc A character, the description for the resulting `ddf` object (optional)
 #'
 #' @return Convolution as a `ddf` object.
 #' @export
@@ -63,16 +63,16 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 #'
 #' @description
 #' Using this function, a distribution, given as a `ddf` object, can be
-#' convolved with itself n times.
+#' convolved with itself \eqn{n} times.
 #'
 #' @details
 #' For more details, see [conv()].
 #'
-#' @param dist A `ddf` distribution
-#' @param n An integer specifying number of convolutions to perform
-#' @param desc The description for the resulting `ddf` object (optional)
+#' @param dist A `ddf` object, the distribution.
+#' @param n An integer specifying the number of convolutions to perform.
+#' @param desc The description for the resulting `ddf` object. (optional)
 #'
-#' @return n-fold convolution as a `ddf` object.
+#' @return \eqn{n}-fold convolution as a `ddf` object.
 #' @export
 #' @family {convolution functions}
 #'

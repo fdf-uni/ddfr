@@ -7,14 +7,14 @@
 quartile(dist, k, method = "all")
 }
 \arguments{
-\item{dist}{\code{ddf} object, the distribution}
+\item{dist}{A \code{ddf} object, the distribution.}
 
-\item{k}{Integer between 0 and 4, exclusive}
+\item{k}{An integer between 0 and 4, exclusive.}
 
-\item{method}{Character specyfing output format}
+\item{method}{A character specifying the output format.}
 }
 \value{
-A numeric vector
+A numeric vector.
 }
 \description{
 This function calculates the \eqn{k}-th quartile of a \code{ddf} distribution.

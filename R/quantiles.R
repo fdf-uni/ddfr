@@ -17,11 +17,11 @@
 #' * If `method` is set to "min" or "max", the respective elements of the
 #'   \eqn{p}-quantiles in the support are returned.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param p Number between 0 and 1, exclusive
-#' @param method Character specyfing output format
+#' @param dist A `ddf` object, the distribution.
+#' @param p A number between 0 and 1, exclusive.
+#' @param method A character specifying the output format.
 #'
-#' @return A numeric vector
+#' @return A numeric vector.
 #' @export
 #' @family quantiles
 #'
@@ -68,11 +68,11 @@ quantiles <- function(dist, p, method = "all") {
 #' For details consult the details of [quantiles()] and recall that a \eqn{k}-th
 #' percentile is a \eqn{k/100}-quantile and vice versa.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param k Integer between 0 and 100, exclusive
-#' @param method Character specyfing output format
+#' @param dist A `ddf` object, the distribution.
+#' @param k An integer between 0 and 100, exclusive.
+#' @param method A character specifying the output format.
 #'
-#' @return A numeric vector
+#' @return A numeric vector.
 #' @export
 #' @family quantiles
 #'
@@ -91,11 +91,11 @@ percentile <- function(dist, k, method = "all") {
 #' For details consult the details of [quantiles()] and recall that a \eqn{k}-th
 #' decile is a \eqn{k/10}-quantile and vice versa.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param k Integer between 0 and 10, exclusive
-#' @param method Character specyfing output format
+#' @param dist A `ddf` object, the distribution.
+#' @param k An integer between 0 and 10, exclusive.
+#' @param method A character specifying the output format.
 #'
-#' @return A numeric vector
+#' @return A numeric vector.
 #' @export
 #' @family quantiles
 #'
@@ -114,11 +114,11 @@ decile <- function(dist, k, method = "all") {
 #' For details consult the details of [quantiles()] and recall that a \eqn{k}-th
 #' quartile is a \eqn{k/4}-quantile and vice versa.
 #'
-#' @param dist `ddf` object, the distribution
-#' @param k Integer between 0 and 4, exclusive
-#' @param method Character specyfing output format
+#' @param dist A `ddf` object, the distribution.
+#' @param k An integer between 0 and 4, exclusive.
+#' @param method A character specifying the output format.
 #'
-#' @return A numeric vector
+#' @return A numeric vector.
 #' @export
 #' @family quantiles
 #'

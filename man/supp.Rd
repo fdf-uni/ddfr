@@ -3,20 +3,25 @@
 \name{supp}
 \alias{supp}
 \alias{supp,ddf-method}
-\title{Get the support of a \code{ddf} object}
+\title{The support}
 \usage{
 supp(dist)
 
 \S4method{supp}{ddf}(dist)
 }
 \arguments{
-\item{dist}{A \code{ddf} object}
+\item{dist}{A \code{ddf} object, the distribution.}
 }
 \value{
 Support as a numerical vector.
 }
 \description{
-Get the support of a \code{ddf} object
+This function returns the support of a given distribution
+as a numerical vector.
+}
+\details{
+The support of a function is defined as the points in the
+function's domain where it is non-zero.
 }
 \examples{
 supp(ddf(1:3))

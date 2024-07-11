@@ -22,5 +22,8 @@ Imports:
     Rcpp,
     stats
 Suggests: 
+    knitr,
+    rmarkdown,
     spelling
 Language: en-US
+VignetteBuilder: knitr

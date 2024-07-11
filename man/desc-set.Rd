@@ -10,12 +10,12 @@ desc(dist) <- value
 \S4method{desc}{ddf}(dist) <- value
 }
 \arguments{
-\item{dist}{A \code{ddf} object}
+\item{dist}{A \code{ddf} object, the distribution.}
 
-\item{value}{A character, new description}
+\item{value}{A character, new description.}
 }
 \value{
-Description text of the \code{ddf} object.
+New description text of the \code{ddf} object.
 }
 \description{
 Set the description of a \code{ddf} object

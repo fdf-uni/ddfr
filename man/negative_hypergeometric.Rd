@@ -7,13 +7,13 @@
 negative_hypergeometric(N, K, r)
 }
 \arguments{
-\item{N}{A positive integer, the population size}
+\item{N}{A positive integer, the population size.}
 
 \item{K}{A non-negative integer, the number of success states in the
 population. Has to be less or equal to \code{N}.}
 
 \item{r}{A non-negative integer, the number of failures until the experiment
-is stopped. Has to be less or eqal to \code{N}-\code{K}.}
+is stopped. Has to be less or equal to \code{N}-\code{K}.}
 }
 \value{
 A \code{ddf} distribution as described above.
