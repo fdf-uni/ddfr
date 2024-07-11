@@ -41,7 +41,7 @@ unif(6)
 # Same distribution as above (except for description):
 ddf(1:6)
 # Not possible using unif:
-ddf(seq(3,12,3))
+ddf(seq(3, 12, 3))
 }
 \seealso{
 Other distributions: 

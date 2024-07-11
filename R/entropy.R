@@ -26,8 +26,9 @@
 #' # The entropy of two fair coin tosses in "bits" is 2
 #' entropy(unif(4))
 entropy <- function(dist, base = 2) {
-  if(base <= 0)
+  if (base <= 0) {
     stop("Error: Argument 'base' must be a positive real number")
+  }
   p <- probs(dist)
   return(-sum(p * log(p, base = base)))
 }

@@ -86,11 +86,11 @@ setClass(
 #' dice <- ddf(1:6, desc = "Distribution modelling a six-sided dice")
 #' dice
 #' # Create ddf object for an unfair coin toss without custom description
-#' coin_toss <- ddf(c(1,2), c(1/4, 3/4))
+#' coin_toss <- ddf(c(1, 2), c(1 / 4, 3 / 4))
 #' coin_toss
-ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discrete distribution with finite support") {
+ddf <- function(supp, probs = rep(1 / length(supp), length(supp)), desc = "A discrete distribution with finite support") {
   # Remove possible duplicates from the support
-  if(any(duplicated(supp))) {
+  if (any(duplicated(supp))) {
     cleaned <- aggregate(probs, by = list(supp = supp), FUN = sum)
     supp <- cleaned$supp
     probs <- cleaned$x
@@ -141,14 +141,15 @@ ddf <- function(supp, probs = rep(1/length(supp), length(supp)), desc = "A discr
 #' @examples
 #' # Create ddf object from (hypothetical) frequencies
 #' # of tossing a fair coin 10 times
-#' coin_tosses <- ddf_from_frequencies(c(1,2), c(3,7))
+#' coin_tosses <- ddf_from_frequencies(c(1, 2), c(3, 7))
 #' coin_tosses
 ddf_from_frequencies <- function(
-    events, frequencies = rep(1/length(events), length(events)),
-    desc = paste("A discrete distribution with finite support,",
-                 "generated from frequencies")
-) {
-  return(ddf(events, frequencies/sum(frequencies), desc))
+    events, frequencies = rep(1 / length(events), length(events)),
+    desc = paste(
+      "A discrete distribution with finite support,",
+      "generated from frequencies"
+    )) {
+  return(ddf(events, frequencies / sum(frequencies), desc))
 }
 
 
@@ -191,7 +192,7 @@ setMethod("supp", "ddf", function(dist) dist@supp)
 #'
 #' @examples
 #' probs(ddf(1:3))
-#' probs(ddf(1:3, c(1/2, 1/4, 1/4)))
+#' probs(ddf(1:3, c(1 / 2, 1 / 4, 1 / 4)))
 setGeneric("probs", function(dist) standardGeneric("probs"))
 #' @export
 #' @rdname probs
@@ -235,7 +236,7 @@ setMethod("desc", "ddf", function(dist) dist@desc)
 setGeneric("desc<-", function(dist, value) standardGeneric("desc<-"))
 #' @export
 #' @rdname desc-set
-setMethod("desc<-", "ddf", function(dist, value){
+setMethod("desc<-", "ddf", function(dist, value) {
   dist@desc <- value
   validObject(dist)
   dist
@@ -255,7 +256,7 @@ setMethod("desc<-", "ddf", function(dist, value){
 #'
 #' @examples
 #' -bin(5, 0.1)
-setMethod("-", c("ddf", "missing"), function(e1, e2){
+setMethod("-", c("ddf", "missing"), function(e1, e2) {
   return(ddf(
     -supp(e1), probs(e1),
     paste(desc(e1), ", flipped at the origin", sep = "")
@@ -266,7 +267,7 @@ setMethod("-", c("ddf", "missing"), function(e1, e2){
 #' @rdname conv
 #' @param e1 `ddf` object, the first distribution.
 #' @param e2 `ddf` object, the second distribution.
-setMethod("*", c("ddf", "ddf"), function(e1, e2){
+setMethod("*", c("ddf", "ddf"), function(e1, e2) {
   return(conv(e1, e2))
 })
 
@@ -283,7 +284,9 @@ setMethod("show", "ddf", function(object) {
 #' @export
 #' @rdname expected_value
 #' @param x `ddf` object, the distribution.
-setMethod("mean", "ddf", function(x){moment(x, 1)})
+setMethod("mean", "ddf", function(x) {
+  moment(x, 1)
+})
 
 # Plotting
 #' Plot a distribution
@@ -307,8 +310,7 @@ setMethod("mean", "ddf", function(x){moment(x, 1)})
 #' plot(pois(8))
 setMethod("plot", c("ddf", "missing"), function(
     x, xlab = "support", ylab = "probabilities",
-    col = "deepskyblue3", main = NULL, sub = NULL, y
-) {
+    col = "deepskyblue3", main = NULL, sub = NULL, y) {
   ggplot(mapping = aes(x = supp(x), y = probs(x))) +
     geom_col(fill = col) +
     labs(x = xlab, y = ylab, title = main, subtitle = sub) +

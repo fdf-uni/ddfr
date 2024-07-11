@@ -48,12 +48,12 @@ moment <- function(dist, n) {
 #' central_moment(bin(5, 0.4), 0)
 #'
 #' # The first central moment is always 0
-#' central_moment(hypergeometric(10, 7, 5), n=1)
+#' central_moment(hypergeometric(10, 7, 5), n = 1)
 #'
 #' # The second central moment is the variance
 #' central_moment(unif(10), 2)
 #' # Result using the formula for the uniform distribution
-#' (10^2-1)/12
+#' (10^2 - 1) / 12
 central_moment <- function(dist, n) {
   mu <- moment(dist, 1)
   return(sum((supp(dist) - mu)^n * probs(dist)))
@@ -90,5 +90,5 @@ central_moment <- function(dist, n) {
 #' # (compare ?skew())
 #' standardized_moment(bin(10, 0.8), 3)
 standardized_moment <- function(dist, n) {
-  return(central_moment(dist, n) / central_moment(dist, 2)^(n/2))
+  return(central_moment(dist, n) / central_moment(dist, 2)^(n / 2))
 }

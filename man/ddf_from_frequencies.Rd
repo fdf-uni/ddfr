@@ -44,6 +44,6 @@ observations.
 \examples{
 # Create ddf object from (hypothetical) frequencies
 # of tossing a fair coin 10 times
-coin_tosses <- ddf_from_frequencies(c(1,2), c(3,7))
+coin_tosses <- ddf_from_frequencies(c(1, 2), c(3, 7))
 coin_tosses
 }

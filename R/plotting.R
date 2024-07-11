@@ -30,8 +30,7 @@
 #' plot(bin(20, 0.8))
 plot_pmf <- function(
     dist, xlab = "x", ylab = "\u2119[X = x]",
-    col = "deepskyblue3", main = NULL, sub = NULL
-) {
+    col = "deepskyblue3", main = NULL, sub = NULL) {
   p <- ggplot(mapping = aes(x = supp(dist), y = probs(dist))) +
     geom_line() +
     geom_point(color = col, size = 2) +
@@ -66,8 +65,7 @@ plot_pmf <- function(
 #' plot_cdf(bin(20, 0.8))
 plot_cdf <- function(
     dist, xlab = "x", ylab = "\u2119[X \u2264 x]",
-    col = "deepskyblue3", main = NULL, sub = NULL
-) {
+    col = "deepskyblue3", main = NULL, sub = NULL) {
   supp <- supp(dist)
   probs <- probs(dist)
   p <- ggplot(mapping = aes(x = supp, y = cumsum(probs))) +
@@ -81,5 +79,4 @@ plot_cdf <- function(
     labs(x = xlab, y = ylab, title = main, subtitle = sub) +
     theme_light()
   return(p)
-
 }

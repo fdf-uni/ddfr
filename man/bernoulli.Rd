@@ -26,7 +26,7 @@ experiments whose only outcomes are "success" and "failure".
 }
 \examples{
 # Distribution modelling a fair coin toss
-bernoulli(1/2)
+bernoulli(1 / 2)
 }
 \seealso{
 Other distributions: 

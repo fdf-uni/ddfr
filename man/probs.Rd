@@ -21,5 +21,5 @@ support of a given distribution as a numerical vector.
 }
 \examples{
 probs(ddf(1:3))
-probs(ddf(1:3, c(1/2, 1/4, 1/4)))
+probs(ddf(1:3, c(1 / 2, 1 / 4, 1 / 4)))
 }

@@ -34,7 +34,7 @@ is given by
 \examples{
 # How often a six can be expected when
 # throwing a six-sided dice thrice
-bin(3, 1/6)
+bin(3, 1 / 6)
 }
 \seealso{
 Other distributions: 

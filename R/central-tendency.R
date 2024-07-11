@@ -67,13 +67,14 @@ expected_value <- function(dist) {
 modes <- function(dist, method = "all") {
   methods <- c("all", "mean", "min", "max")
   # Ensure that method is implemented
-  if(!(method %in% methods))
+  if (!(method %in% methods)) {
     stop(paste(
       "Error: Argument 'method' must be one of the following:",
       paste(methods, collapse = " ")
     ))
+  }
   m <- supp(dist)[probs(dist) == max(probs(dist))]
-  if(method == "all") {
+  if (method == "all") {
     return(m)
   } else if (method == "mean") {
     return(mean(m))
@@ -113,5 +114,5 @@ modes <- function(dist, method = "all") {
 #' # This can be controlled using the method argument
 #' medians(unif(4), method = "mean")
 medians <- function(dist, method = "all") {
-  return(quantiles(dist, 1/2, method))
+  return(quantiles(dist, 1 / 2, method))
 }

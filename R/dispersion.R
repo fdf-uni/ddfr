@@ -20,7 +20,7 @@
 #' # Variance of a binomial distribution
 #' variance(bin(10, 0.3))
 #' # Using the corresponding formula
-#' 10*0.3*(1-0.3)
+#' 10 * 0.3 * (1 - 0.3)
 variance <- function(dist) {
   return(central_moment(dist, 2))
 }

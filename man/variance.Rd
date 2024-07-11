@@ -27,5 +27,5 @@ values are to be expected closer to the mean.
 # Variance of a binomial distribution
 variance(bin(10, 0.3))
 # Using the corresponding formula
-10*0.3*(1-0.3)
+10 * 0.3 * (1 - 0.3)
 }

@@ -28,12 +28,12 @@ where \eqn{E} is the expectation operator.
 central_moment(bin(5, 0.4), 0)
 
 # The first central moment is always 0
-central_moment(hypergeometric(10, 7, 5), n=1)
+central_moment(hypergeometric(10, 7, 5), n = 1)
 
 # The second central moment is the variance
 central_moment(unif(10), 2)
 # Result using the formula for the uniform distribution
-(10^2-1)/12
+(10^2 - 1) / 12
 }
 \seealso{
 Other moments: 

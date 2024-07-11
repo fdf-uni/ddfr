@@ -36,9 +36,9 @@ quantile of the given distribution are returned. This is the default behaviour.
 }
 }
 \examples{
-quantiles(unif(6), 1/2)
+quantiles(unif(6), 1 / 2)
 # Using another method for output
-quantiles(unif(6), 1/2, method = "mean")
+quantiles(unif(6), 1 / 2, method = "mean")
 }
 \seealso{
 Other quantiles: 

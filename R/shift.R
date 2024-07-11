@@ -18,5 +18,3 @@
 shift <- function(dist, s, desc_shift = paste(desc(dist), ", shifted by ", s, sep = "")) {
   return(ddf(supp(dist) + s, probs(dist), desc = desc_shift))
 }
-
-

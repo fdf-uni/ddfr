@@ -41,20 +41,22 @@ is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
 #' # Same distribution as above (except for description):
 #' ddf(1:6)
 #' # Not possible using unif:
-#' ddf(seq(3,12,3))
+#' ddf(seq(3, 12, 3))
 unif <- function(n, start_at_one = TRUE) {
   # Check that n is large enough integer
-  if (!(is.wholenumber(n) & n >= start_at_one))
+  if (!(is.wholenumber(n) & n >= start_at_one)) {
     stop(paste(
       "Argument `n` must be a non-negative integer",
       "(strictly positive if start_at_one = TRUE)"
     ))
+  }
   # Create fitting description
-  desc <- paste("Discrete uniform distribution on",
+  desc <- paste(
+    "Discrete uniform distribution on",
     ifelse(
       n - start_at_one >= 1,
-      paste("{", as.numeric(start_at_one), ", ..., ", n, "}", sep=""),
-      paste("{", as.numeric(start_at_one), "}", sep="")
+      paste("{", as.numeric(start_at_one), ", ..., ", n, "}", sep = ""),
+      paste("{", as.numeric(start_at_one), "}", sep = "")
     )
   )
   return(ddf(start_at_one:n, desc = desc))
@@ -88,20 +90,22 @@ unif <- function(n, start_at_one = TRUE) {
 #' @examples
 #' # How often a six can be expected when
 #' # throwing a six-sided dice thrice
-#' bin(3, 1/6)
+#' bin(3, 1 / 6)
 bin <- function(n, p) {
   # Check that n is large enough integer
-  if (!(is.wholenumber(n) & n >= 0))
+  if (!(is.wholenumber(n) & n >= 0)) {
     stop("Argument `n` must be a non-negative integer")
+  }
   # Check that probability lies between 0 and 1
-  if (!(0<=p & p<=1))
+  if (!(0 <= p & p <= 1)) {
     stop("Argument `p` must be between 0 and 1, inclusive")
+  }
   # Ensure proper support when p = 0 or p = 1
   if (p == 0 | p == 1) {
-    supp <- as.numeric(p == 1)*n
+    supp <- as.numeric(p == 1) * n
     probs <- 1
   } else {
-    supp <- 0 : n
+    supp <- 0:n
     probs <- dbinom(supp, n, p)
   }
   # Create fitting description
@@ -132,18 +136,19 @@ bin <- function(n, p) {
 #'
 #' @examples
 #' # Distribution modelling a fair coin toss
-#' bernoulli(1/2)
+#' bernoulli(1 / 2)
 bernoulli <- function(p) {
   # Check that probability lies between 0 and 1
-  if (!(0<=p & p<=1))
+  if (!(0 <= p & p <= 1)) {
     stop("Argument `p` must be between 0 and 1, inclusive")
+  }
   # Ensure proper support when p = 0 or p = 1
   if (p == 0 | p == 1) {
     supp <- as.numeric(p == 1)
     probs <- 1
   } else {
-    supp <- 0 : 1
-    probs <- c(1-p, p)
+    supp <- 0:1
+    probs <- c(1 - p, p)
   }
   return(ddf(supp, probs, paste("Bernoulli distribution with p =", p)))
 }
@@ -175,7 +180,7 @@ bernoulli <- function(p) {
 #' # with step size 1 of length 4
 #' conv_n(rademacher(), 4)
 rademacher <- function() {
-  return(ddf(c(-1, 1), rep(1/2, 2), "Rademacher distribution"))
+  return(ddf(c(-1, 1), rep(1 / 2, 2), "Rademacher distribution"))
 }
 
 #' Benford's law
@@ -208,10 +213,11 @@ rademacher <- function() {
 #' benford(10)
 benford <- function(b) {
   # Check that b is large enough integer
-  if (!(is.wholenumber(b) & b >= 2))
+  if (!(is.wholenumber(b) & b >= 2)) {
     stop("Argument `b` must be an integer strictly greater than 1")
-  supp <- 1 : (b-1)
-  return(ddf(supp, log(1+1/supp, b), paste("Benford's law in base", b)))
+  }
+  supp <- 1:(b - 1)
+  return(ddf(supp, log(1 + 1 / supp, b), paste("Benford's law in base", b)))
 }
 
 #' The Zipf distribution
@@ -251,14 +257,16 @@ benford <- function(b) {
 #' zipf(5)
 zipf <- function(N, s = 1) {
   # Check that N is large enough integer
-  if (!(is.wholenumber(N) & N >= 1))
+  if (!(is.wholenumber(N) & N >= 1)) {
     stop("Argument `N` must be a positive integer")
+  }
   # Check that s >= 0
-  if (s<0)
+  if (s < 0) {
     stop("Argument `s` must be a non-negative real number")
-  supp <- 1 : N
-  generalized_harmonic_number <- sum(1/supp^s)
-  probs <- 1/(generalized_harmonic_number * supp^s)
+  }
+  supp <- 1:N
+  generalized_harmonic_number <- sum(1 / supp^s)
+  probs <- 1 / (generalized_harmonic_number * supp^s)
   # Create fitting description
   desc <- paste("Zipf distribution on N =", N, "elements with parameter s =", s)
   return(ddf(supp, probs, desc))
@@ -300,20 +308,24 @@ zipf <- function(N, s = 1) {
 #' hypergeometric(20, 6, 5)
 hypergeometric <- function(N, K, n) {
   # Check that N is large enough integer
-  if (!(is.wholenumber(N) & N >= 0))
+  if (!(is.wholenumber(N) & N >= 0)) {
     stop("Argument `N` must be a non-negative integer")
+  }
   # Check that K is integer in {0, ..., N}
-  if (!(is.wholenumber(K) & 0 <= K & K <= N))
+  if (!(is.wholenumber(K) & 0 <= K & K <= N)) {
     stop("Argument `K` must be an integer between 0 and `N`, inclusive")
+  }
   # Check that n is integer in {0, ..., N}
-  if (!(is.wholenumber(n) & 0 <= n & n <= N))
+  if (!(is.wholenumber(n) & 0 <= n & n <= N)) {
     stop("Argument `n` must be an integer between 0 and `N`, inclusive")
-  supp <- max(0, n+K-N) : min(n, K)
-  probs <- dhyper(supp, K, N-K, n)
+  }
+  supp <- max(0, n + K - N):min(n, K)
+  probs <- dhyper(supp, K, N - K, n)
   # Create fitting description
   desc <- paste(
     "Hypergeometric distribution with parameters ",
-    "N = ", N, ", K = ", K, " and n = ", n, sep = ""
+    "N = ", N, ", K = ", K, " and n = ", n,
+    sep = ""
   )
   return(ddf(supp, probs, desc))
 }
@@ -354,26 +366,30 @@ hypergeometric <- function(N, K, n) {
 #' negative_hypergeometric(20, 6, 5)
 negative_hypergeometric <- function(N, K, r) {
   # Check that N is large enough integer
-  if (!(is.wholenumber(N) & N >= 0))
+  if (!(is.wholenumber(N) & N >= 0)) {
     stop("Argument `N` must be a non-negative integer")
+  }
   # Check that K is integer in {0, ..., N}
-  if (!(is.wholenumber(K) & 0 <= K & K <= N))
+  if (!(is.wholenumber(K) & 0 <= K & K <= N)) {
     stop("Argument `K` must be an integer between 0 and `N`, inclusive")
+  }
   # Check that r is integer in {0, ..., N - K}
-  if (!(is.wholenumber(r) & 0 <= r & r <= N - K))
+  if (!(is.wholenumber(r) & 0 <= r & r <= N - K)) {
     stop("Argument `r` must be an integer between 0 and `N`-`K`, inclusive")
+  }
   # Ensure proper support when r = 0
   if (r == 0) {
     supp <- 0
     probs <- 1
   } else {
-    supp <- 0 : K
-    probs <- choose(supp+r-1, supp) * choose(N-r-supp, K-supp)/choose(N,K)
+    supp <- 0:K
+    probs <- choose(supp + r - 1, supp) * choose(N - r - supp, K - supp) / choose(N, K)
   }
   # Create fitting description
   desc <- paste(
     "Negative hypergeometric distribution with parameters ",
-    "N = ", N, ", K = ", K, " and r = ", r, sep = ""
+    "N = ", N, ", K = ", K, " and r = ", r,
+    sep = ""
   )
   return(ddf(supp, probs, desc))
 }
@@ -423,20 +439,24 @@ negative_hypergeometric <- function(N, K, r) {
 #' negative_hypergeometric(14, 8, 5)
 beta_binomial <- function(n, alpha, beta) {
   # Check that n is large enough integer
-  if (!(is.wholenumber(n) & n >= 0))
+  if (!(is.wholenumber(n) & n >= 0)) {
     stop("Argument `n` must be a non-negative integer")
+  }
   # Check that alpha > 0
-  if (alpha<=0)
+  if (alpha <= 0) {
     stop("Argument `alpha` must be a positive real number")
+  }
   # Check that beta > 0
-  if (beta<=0)
+  if (beta <= 0) {
     stop("Argument `beta` must be a positive real number")
+  }
   supp <- 0:n
-  probs <- choose(n, supp) * beta(supp + alpha, n - supp + beta)/beta(alpha, beta)
+  probs <- choose(n, supp) * beta(supp + alpha, n - supp + beta) / beta(alpha, beta)
   # Create fitting description
   desc <- paste(
     "Beta-binomial distribution with parameters ",
-    "n = ", n, ", alpha = ", alpha, " and beta = ", beta, sep = ""
+    "n = ", n, ", alpha = ", alpha, " and beta = ", beta,
+    sep = ""
   )
   return(ddf(supp, probs, desc))
 }

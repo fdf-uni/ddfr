@@ -26,26 +26,28 @@
 #' @family quantiles
 #'
 #' @examples
-#' quantiles(unif(6), 1/2)
+#' quantiles(unif(6), 1 / 2)
 #' # Using another method for output
-#' quantiles(unif(6), 1/2, method = "mean")
+#' quantiles(unif(6), 1 / 2, method = "mean")
 quantiles <- function(dist, p, method = "all") {
   methods <- c("all", "mean", "min", "max")
   # Ensure that method is implemented
-  if(!(method %in% methods))
+  if (!(method %in% methods)) {
     stop(paste(
       "Error: Argument 'method' must be one of the following:",
       paste(methods, collapse = " ")
     ))
+  }
   # Ensure that p is between 0 and 1
-  if(!(0 < p & p < 1))
+  if (!(0 < p & p < 1)) {
     stop("Error: Argument 'p' must be between 0 and 1, exclusive")
+  }
   # Calculate quantiles
   q <- supp(dist)[
     (cumsum(probs(dist)) >= p) & (rev(cumsum(rev(probs(dist)))) >= 1 - p)
   ]
   # Return quantiles in format matching the method
-  if(method == "all") {
+  if (method == "all") {
     return(q)
   } else if (method == "mean") {
     return(mean(q))
@@ -79,7 +81,7 @@ quantiles <- function(dist, p, method = "all") {
 #' @examples
 #' percentile(bin(10, 0.3), 30)
 percentile <- function(dist, k, method = "all") {
-  return(quantiles(dist, k/100, method))
+  return(quantiles(dist, k / 100, method))
 }
 
 #' Calculate deciles of distributions
@@ -102,7 +104,7 @@ percentile <- function(dist, k, method = "all") {
 #' @examples
 #' decile(bin(10, 0.3), 3)
 decile <- function(dist, k, method = "all") {
-  return(quantiles(dist, k/10, method))
+  return(quantiles(dist, k / 10, method))
 }
 
 #' Calculate quartiles of distributions
@@ -125,5 +127,5 @@ decile <- function(dist, k, method = "all") {
 #' @examples
 #' quartile(bin(10, 0.3), 3)
 quartile <- function(dist, k, method = "all") {
-  return(quantiles(dist, k/4, method))
+  return(quantiles(dist, k / 4, method))
 }
