@@ -30,3 +30,18 @@ parameters.
 # 6 white marbles and 20 marbles in total
 hypergeometric(20, 6, 5)
 }
+\seealso{
+Other distributions: 
+\code{\link{benford}()},
+\code{\link{bernoulli}()},
+\code{\link{beta_binomial}()},
+\code{\link{bin}()},
+\code{\link{geometric}()},
+\code{\link{negative_bin}()},
+\code{\link{negative_hypergeometric}()},
+\code{\link{pois}()},
+\code{\link{rademacher}()},
+\code{\link{unif}()},
+\code{\link{zipf}()}
+}
+\concept{distributions}

@@ -26,3 +26,18 @@ Create a \code{ddf} object for the binomial distribution with the given paramete
 # throwing a six-sided dice thrice
 bin(3, 1/6)
 }
+\seealso{
+Other distributions: 
+\code{\link{benford}()},
+\code{\link{bernoulli}()},
+\code{\link{beta_binomial}()},
+\code{\link{geometric}()},
+\code{\link{hypergeometric}()},
+\code{\link{negative_bin}()},
+\code{\link{negative_hypergeometric}()},
+\code{\link{pois}()},
+\code{\link{rademacher}()},
+\code{\link{unif}()},
+\code{\link{zipf}()}
+}
+\concept{distributions}

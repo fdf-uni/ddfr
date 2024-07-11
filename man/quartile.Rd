@@ -20,7 +20,7 @@ A numeric vector
 This function calculates the \eqn{k}-th quartile of a \code{ddf} distribution.
 }
 \details{
-For details consult the details of \code{\link[=quantile]{quantile()}} and recall that a \eqn{k}-th
+For details consult the details of \code{\link[=quantiles]{quantiles()}} and recall that a \eqn{k}-th
 quartile is a \eqn{k/4}-quantile and vice versa.
 }
 \examples{
@@ -30,6 +30,6 @@ quartile(bin(10, 0.3), 3)
 Other quantiles: 
 \code{\link{decile}()},
 \code{\link{percentile}()},
-\code{\link{quantile}()}
+\code{\link{quantiles}()}
 }
 \concept{quantiles}

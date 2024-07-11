@@ -20,3 +20,18 @@ Create a \code{ddf} object describing Benford's law for the given base.
 # to Benford's law, in decimal system
 benford(10)
 }
+\seealso{
+Other distributions: 
+\code{\link{bernoulli}()},
+\code{\link{beta_binomial}()},
+\code{\link{bin}()},
+\code{\link{geometric}()},
+\code{\link{hypergeometric}()},
+\code{\link{negative_bin}()},
+\code{\link{negative_hypergeometric}()},
+\code{\link{pois}()},
+\code{\link{rademacher}()},
+\code{\link{unif}()},
+\code{\link{zipf}()}
+}
+\concept{distributions}

@@ -21,3 +21,18 @@ parameters.
 \examples{
 beta_binomial(4, 0.6, 2)
 }
+\seealso{
+Other distributions: 
+\code{\link{benford}()},
+\code{\link{bernoulli}()},
+\code{\link{bin}()},
+\code{\link{geometric}()},
+\code{\link{hypergeometric}()},
+\code{\link{negative_bin}()},
+\code{\link{negative_hypergeometric}()},
+\code{\link{pois}()},
+\code{\link{rademacher}()},
+\code{\link{unif}()},
+\code{\link{zipf}()}
+}
+\concept{distributions}

@@ -20,3 +20,18 @@ Create a \code{ddf} object for the Zipf distribution with the given parameters.
 \examples{
 zipf(5)
 }
+\seealso{
+Other distributions: 
+\code{\link{benford}()},
+\code{\link{bernoulli}()},
+\code{\link{beta_binomial}()},
+\code{\link{bin}()},
+\code{\link{geometric}()},
+\code{\link{hypergeometric}()},
+\code{\link{negative_bin}()},
+\code{\link{negative_hypergeometric}()},
+\code{\link{pois}()},
+\code{\link{rademacher}()},
+\code{\link{unif}()}
+}
+\concept{distributions}

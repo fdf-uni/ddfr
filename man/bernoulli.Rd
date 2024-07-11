@@ -20,3 +20,18 @@ parameters.
 # Distribution modelling a fair coin toss
 bernoulli(1/2)
 }
+\seealso{
+Other distributions: 
+\code{\link{benford}()},
+\code{\link{beta_binomial}()},
+\code{\link{bin}()},
+\code{\link{geometric}()},
+\code{\link{hypergeometric}()},
+\code{\link{negative_bin}()},
+\code{\link{negative_hypergeometric}()},
+\code{\link{pois}()},
+\code{\link{rademacher}()},
+\code{\link{unif}()},
+\code{\link{zipf}()}
+}
+\concept{distributions}

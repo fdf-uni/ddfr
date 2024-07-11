@@ -7,6 +7,10 @@
 #' The variance is the second central moment. For more details see the
 #' corresponding help, i.e. [central_moment()].
 #'
+#' It is a measure of dispersions, i.e. it measures how much the mass of a
+#' distribution is spread around its mean. A lower variance indicates that
+#' values are to be expected close to the mean.
+#'
 #' @param dist A `ddf` object, the distribution.
 #'
 #' @return A double.
