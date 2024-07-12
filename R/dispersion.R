@@ -78,6 +78,10 @@ distribution_range <- function(dist) {
 #' \eqn{Q_1} and \eqn{Q_3} are the first and third quartiles, respectively (for
 #' more information see [quartile()] and [quantile()]).
 #'
+#' This function always returns the largest possible interquartile range, i.e.
+#' if the third quartile is not unique, it uses the maximum of all third
+#' quartiles and if the first quartile is not unique, it uses the smallest one.
+#'
 #' @param dist A `ddf` object, the distribution.
 #'
 #' @return A double.

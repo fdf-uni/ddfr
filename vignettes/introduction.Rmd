@@ -168,6 +168,15 @@ sufficient to understand them.
 ## Entropy
 - Entropy as `entropy()`
 
+## Report
+In case one wants to quickly get an overview of the considered distribution,
+there is also the function `report()` which, as the name suggests, writes a
+report on the given distribution:
+```{r, results='asis'}
+cat(report(bin(15, 0.7)))
+```
+
+
 # Creating new objects from `ddf` distributions
 
 ## Creating `R` functions

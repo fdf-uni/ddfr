@@ -19,6 +19,10 @@ This function calculates the interquartile range of a \code{ddf} distribution.
 The interquartile range is defined as the difference \eqn{Q_3 - Q_1}, where
 \eqn{Q_1} and \eqn{Q_3} are the first and third quartiles, respectively (for
 more information see \code{\link[=quartile]{quartile()}} and \code{\link[=quantile]{quantile()}}).
+
+This function always returns the largest possible interquartile range, i.e.
+if the third quartile is not unique, it uses the maximum of all third
+quartiles and if the first quartile is not unique, it uses the smallest one.
 }
 \examples{
 # Interquartile range of a uniform distribution
