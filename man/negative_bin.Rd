@@ -9,7 +9,7 @@ In order to calculate a fitting cutoff, the quantile function
 the distribution.
 }
 \usage{
-negative_bin(r, p, eps = 1e-10)
+negative_bin(r, p, eps = 1e-10, normalize = TRUE)
 }
 \arguments{
 \item{r}{A positive number, the number of successes until the experiment is
@@ -18,7 +18,10 @@ stopped.}
 \item{p}{A number between 0 and 1, the success probability in each experiment.}
 
 \item{eps}{A positive number, how close the distribution is approximated.
-See ‘Details.’ (optional)}
+See ‘Details.’ (default: \code{1e-10})}
+
+\item{normalize}{Logical, whether to normalize the approximated distribution.
+(default: TRUE)}
 }
 \value{
 A \code{ddf} distribution as described above.
@@ -46,8 +49,15 @@ distribution.
 For this, the support is cut off at a large enough integer such that the
 overall probability is still close to 1.
 The cutoff is controlled via the \code{eps} argument which specifies how close the
-sum of all probabilities has to be to 1. The default value is 1e-10 since
+sum of all probabilities has to be to 1. The default value is \code{1e-10} since
 this is also the minimum accuracy required for creating valid \code{ddf} objects.
+
+By default, i.e. unless \code{normalize} is set to \code{FALSE}, the specified accuracy
+won't raise any problems even when being larger than \code{1e-10} as the
+approximation is normalized at the end (that is, the approximating
+probabilities are divided by their sum).
+This ensures that the returned object is an actual distribution with its
+overall probability being precisely one.
 }
 \examples{
 # 'r' does not have to be an integer

@@ -1,9 +1,6 @@
 # Implementation of common discrete distributions with countably infinite support
 # They're approximated by cutting off the support at a large enough number
 
-# TODO: Add details to documentations describing what each distribution models,
-#       what its support is and how PMF is given.
-
 #' The Poisson distribution
 #'
 #' @description
@@ -26,12 +23,21 @@
 #' For this, the support is cut off at a large enough integer such that the
 #' overall probability is still close to 1.
 #' The cutoff is controlled via the `eps` argument which specifies how close the
-#' sum of all probabilities has to be to 1. The default value is 1e-10 since
+#' sum of all probabilities has to be to 1. The default value is `1e-10` since
 #' this is also the minimum accuracy required for creating valid `ddf` objects.
+#'
+#' By default, i.e. unless `normalize` is set to `FALSE`, the specified accuracy
+#' won't raise any problems even when being larger than `1e-10` as the
+#' approximation is normalized at the end (that is, the approximating
+#' probabilities are divided by their sum).
+#' This ensures that the returned object is an actual distribution with its
+#' overall probability being precisely one.
 #'
 #' @param lambda A positive number, the expected rate of occurrences.
 #' @param eps A positive number, how close the distribution is approximated.
-#' See ‘Details.’ (optional)
+#' See ‘Details.’ (default: `1e-10`)
+#' @param normalize Logical, whether to normalize the approximated distribution.
+#' (default: TRUE)
 #'
 #' @source In order to calculate a fitting cutoff, the quantile function
 #' [stats::qpois()] is used. [stats::dpois()] is then employed to calculate
@@ -45,19 +51,19 @@
 #' pois(0.3)
 #' # A more accurate approximation of the same distribution
 #' pois(0.3, 1e-15)
-pois <- function(lambda, eps = 1e-10) {
+pois <- function(lambda, eps = 1e-10, normalize = TRUE) {
   # Check that lambda > 0
-  if (lambda <= 0) {
+  if (lambda <= 0)
     stop("Argument `lambda` must be a positive real number")
-  }
   # Check that eps > 0
-  if (eps <= 0) {
+  if (eps <= 0)
     stop("Argument `eps` must be a positive real number")
-  }
   # Find large enough cutoff such that probabilities still almost sum up to 1
   upper_bound <- qpois(1 - eps, lambda)
   supp <- 0:upper_bound
   probs <- dpois(supp, lambda)
+  # Normalize based on argument
+  if(normalize) { probs <- probs/sum(probs) }
   # Create fitting description
   desc <- paste(
     "(Approximation of a) poisson distribution with lambda =", lambda
@@ -91,14 +97,23 @@ pois <- function(lambda, eps = 1e-10) {
 #' For this, the support is cut off at a large enough integer such that the
 #' overall probability is still close to 1.
 #' The cutoff is controlled via the `eps` argument which specifies how close the
-#' sum of all probabilities has to be to 1. The default value is 1e-10 since
+#' sum of all probabilities has to be to 1. The default value is `1e-10` since
 #' this is also the minimum accuracy required for creating valid `ddf` objects.
+#'
+#' By default, i.e. unless `normalize` is set to `FALSE`, the specified accuracy
+#' won't raise any problems even when being larger than `1e-10` as the
+#' approximation is normalized at the end (that is, the approximating
+#' probabilities are divided by their sum).
+#' This ensures that the returned object is an actual distribution with its
+#' overall probability being precisely one.
 #'
 #' @param r A positive number, the number of successes until the experiment is
 #' stopped.
 #' @param p A number between 0 and 1, the success probability in each experiment.
 #' @param eps A positive number, how close the distribution is approximated.
-#' See ‘Details.’ (optional)
+#' See ‘Details.’ (default: `1e-10`)
+#' @param normalize Logical, whether to normalize the approximated distribution.
+#' (default: TRUE)
 #'
 #' @source In order to calculate a fitting cutoff, the quantile function
 #' [stats::qnbinom()] is used. [stats::dnbinom()] is then employed to calculate
@@ -113,19 +128,19 @@ pois <- function(lambda, eps = 1e-10) {
 #' negative_bin(2.25, 0.95)
 #' # A more accurate approximation of the same distribution
 #' negative_bin(2.25, 0.95, 1e-12)
-negative_bin <- function(r, p, eps = 1e-10) {
+negative_bin <- function(r, p, eps = 1e-10, normalize = TRUE) {
   # Check that r > 0
-  if (r <= 0) {
+  if (r <= 0)
     stop("Argument `r` must be a positive real number")
-  }
   # Check that probability lies between 0 (excluded) and 1
-  if (!(0 < p & p <= 1)) {
+  if (!(0 < p & p <= 1))
     stop("Argument `p` must be between 0 (exclusive) and 1 (inclusive)")
-  }
   # Find large enough cutoff such that probabilities still almost sum up to 1
   upper_bound <- qnbinom(1 - eps, r, p)
   supp <- 0:upper_bound
   probs <- dnbinom(supp, r, p)
+  # Normalize based on argument
+  if(normalize) { probs <- probs/sum(probs) }
   # Create fitting description
   desc <- paste(
     "(Approximation of a) negative binomial distribution with parameters r =",
@@ -170,14 +185,23 @@ negative_bin <- function(r, p, eps = 1e-10) {
 #' For this, the support is cut off at a large enough integer such that the
 #' overall probability is still close to 1.
 #' The cutoff is controlled via the `eps` argument which specifies how close the
-#' sum of all probabilities has to be to 1. The default value is 1e-10 since
+#' sum of all probabilities has to be to 1. The default value is `1e-10` since
 #' this is also the minimum accuracy required for creating valid `ddf` objects.
+#'
+#' By default, i.e. unless `normalize` is set to `FALSE`, the specified accuracy
+#' won't raise any problems even when being larger than `1e-10` as the
+#' approximation is normalized at the end (that is, the approximating
+#' probabilities are divided by their sum).
+#' This ensures that the returned object is an actual distribution with its
+#' overall probability being precisely one.
 #'
 #' @param p A number between 0 and 1, the success probability in each experiment.
 #' @param start_at_one Logical, whether to start the support at 0 or 1.
 #' (default: FALSE)
 #' @param eps A positive number, how close the distribution is approximated.
-#' See ‘Details.’ (optional)
+#' See ‘Details.’ (default: `1e-10`)
+#' @param normalize Logical, whether to normalize the approximated distribution.
+#' (default: TRUE)
 #'
 #' @source In order to calculate a fitting cutoff, the quantile function
 #' [stats::qnbinom()] is used. [stats::dnbinom()] is then employed to calculate
@@ -192,9 +216,9 @@ negative_bin <- function(r, p, eps = 1e-10) {
 #' # A more accurate approximation of the same distribution,
 #' # starting at 1 instead of 0
 #' geometric(0.8, TRUE, 1e-15)
-geometric <- function(p, start_at_one = FALSE, eps = 1e-10) {
+geometric <- function(p, start_at_one = FALSE, eps = 1e-10, normalize = TRUE) {
   # Geometric distribution is just a negative binomial one with r = 1
-  nb <- negative_bin(1, p, eps)
+  nb <- negative_bin(1, p, eps, normalize)
   # Create fitting description
   desc <- paste(
     "(Approximation of a) geometric distribution with p = ", p,

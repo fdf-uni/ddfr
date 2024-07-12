@@ -24,7 +24,7 @@ especially when being convolved with itself (compare the ‘Examples’).
 \examples{
 rademacher()
 
-# Modelling a symmetric random walk starting at 0
+# Model a symmetric random walk starting at 0
 # with step size 1 of length 4
 conv_n(rademacher(), 4)
 }

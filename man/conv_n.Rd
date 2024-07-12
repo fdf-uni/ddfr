@@ -24,8 +24,12 @@ convolved with itself \eqn{n} times.
 For more details, see \code{\link[=conv]{conv()}}.
 }
 \examples{
-# Calculate the distribution of the sum of throwing a dice four times
+# Calculate the distribution of the sum of
+# throwing a dice four times
 conv_n(ddf(1:6), 4, desc = "Distribution of throwing a dice four times")
+# Model a symmetric random walk starting at 0
+# with step size 1 of length 4
+conv_n(rademacher(), 4)
 }
 \seealso{
 Other {convolution functions}: 

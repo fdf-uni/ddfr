@@ -44,11 +44,14 @@
 #' # (Up to description) equivalent call using generic method
 #' dice * dice
 #'
-#' # Note that for distributions which are approximated,
-#' # errors can propagate when convolving:
-#' try(conv(unif(5), geometric(0.9)))
+#' # Note that for distributions which are approximated without
+#' # also being normalized, approximation errors can propagate
+#' # when convolving:
+#' try(conv(unif(5), geometric(0.9, normalize = FALSE)))
 #' # This can be corrected by using a better approximation
-#' conv(unif(5), geometric(0.9, eps = 1e-11))
+#' conv(unif(5), geometric(0.9, eps = 1e-11, normalize = FALSE))
+#' # Or simply by normalizing
+#' conv(unif(5), geometric(0.9))
 #'
 #' # When one is interested in the difference instead of
 #' # the sum, one can use the generic `-` which multiplies
@@ -77,8 +80,12 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 #' @family {convolution functions}
 #'
 #' @examples
-#' # Calculate the distribution of the sum of throwing a dice four times
+#' # Calculate the distribution of the sum of
+#' # throwing a dice four times
 #' conv_n(ddf(1:6), 4, desc = "Distribution of throwing a dice four times")
+#' # Model a symmetric random walk starting at 0
+#' # with step size 1 of length 4
+#' conv_n(rademacher(), 4)
 conv_n <- function(dist, n, desc = paste(n, "-fold convolution of", desc(dist))) {
   dist_new <- dist
   for (i in 1:(n - 1)) {
