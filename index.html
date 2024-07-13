@@ -75,7 +75,7 @@
 
 <p>The goal of <code>ddfr</code> is to make it easier to work with <em>D</em>iscrete <em>D</em>istributions with <em>F</em>inite support in <em>R</em>.</p>
 <p>For specific details, you can check out the <a href="https://fdf-uni.github.io/ddfr/">website</a> (in case you aren’t already reading this there) which is also linked in the description of the package’s <a href="https://github.com/fdf-uni/ddfr/" class="external-link">GitHub repository</a>.</p>
-<p>Especially the <a href="https://fdf-uni.github.io/ddfr/articles/introduction.html">Introduction</a> should provide you with all relevant information to get started with the package. After having installed the package, you can also access it within <code>R</code> using:</p>
+<p>Especially the <a href="https://fdf-uni.github.io/ddfr/articles/introduction.html">Introduction</a> should provide you with all relevant information to get started with the package. If you installed the package with the relevant option (see “Installation”), you can also access this vignette within <code>R</code> using:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"introduction"</span>, <span class="st">"ddfr"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, if you’d prefer to view it in your browser, there is also:</p>
@@ -87,12 +87,15 @@
 <p>You can install the development version of <code>ddfr</code> like so:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fdf-uni/ddfr"</span><span class="op">)</span></span></code></pre></div>
+<p>If you want to be able to access the vignettes from within <code>R</code> as described above, use:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fdf-uni/ddfr"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a basic example which shows some of <code>ddfr</code>’s features:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fdf-uni.github.io/ddfr/">ddfr</a></span><span class="op">)</span></span>
 <span><span class="co"># Create uniform distribution on {1, ..., 6}</span></span>
 <span><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/unif.html">unif</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span></span>
