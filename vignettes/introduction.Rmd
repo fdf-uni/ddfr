@@ -213,16 +213,12 @@ At least when it comes to plots, an image is worth a thousand words, so here are
 all three functions in action:
 ```{r}
 #| fig.alt: >
-#|    Plot of a binomial distribution with parameters n = 30 and p = 0.3.
-#|    It is visualized as a column chart.
+#|    Three plots for a binomial distribution with parameters n = 30 and p = 0.3.
+#|    The first plot visualizes it as a column chart.
+#|    The second plot shows its probability mass funtion using a line plot with points corresponding to the support of the distribution being highlighted additionally as small circles.
+#|    The third and last plot shows its cumulative distribution function as a line plot having the form of a step function. The steps correspond to points of the support of the distribution and they're once again highlighted in the same way.
 plot(bin(30, 0.3))
-#| fig.alt: >
-#|    Plot of the probability mass function of a binomial distribution with parameters n = 30 and p = 0.3.
-#|    It is visualized using a line plot with points corresponding to the support of the distribution being highlighted additionally.
 plot_pmf(bin(30, 0.3))
-#| fig.alt: >
-#|    Plot of the cumulative distribution function of a binomial distribution with parameters n = 30 and p = 0.3.
-#|    It is visualized using a line plot having the form of a step function with points corresponding to the support of the distribution being highlighted additionally.
 plot_cdf(bin(30, 0.3))
 ```
 
