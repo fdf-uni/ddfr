@@ -212,8 +212,17 @@ The first one of these is once again a generic for the S4 class `ddf`.
 At least when it comes to plots, an image is worth a thousand words, so here are
 all three functions in action:
 ```{r}
+#| fig.alt: >
+#|    Plot of a binomial distribution with parameters n = 30 and p = 0.3.
+#|    It is visualized as a column chart.
 plot(bin(30, 0.3))
+#| fig.alt: >
+#|    Plot of the probability mass function of a binomial distribution with parameters n = 30 and p = 0.3.
+#|    It is visualized using a line plot with points corresponding to the support of the distribution being highlighted additionally.
 plot_pmf(bin(30, 0.3))
+#| fig.alt: >
+#|    Plot of the cumulative distribution function of a binomial distribution with parameters n = 30 and p = 0.3.
+#|    It is visualized using a line plot having the form of a step function with points corresponding to the support of the distribution being highlighted additionally.
 plot_cdf(bin(30, 0.3))
 ```
 
