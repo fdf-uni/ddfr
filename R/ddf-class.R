@@ -263,7 +263,7 @@ setMethod("desc<-", "ddf", function(dist, value) {
 setMethod("-", c("ddf", "missing"), function(e1, e2) {
   return(ddf(
     -supp(e1), probs(e1),
-    paste(desc(e1), ", flipped at the origin", sep = "")
+    paste(desc(e1), ", multiplied with -1", sep = "")
   ))
 })
 
