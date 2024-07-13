@@ -9,7 +9,7 @@ The goal of `ddfr` is to make it easier to work with *D*iscrete *D*istributions 
 
 For specific details, you can check out the [website](https://fdf-uni.github.io/ddfr/) (in case you aren't already reading this there) which is also linked in the description of the package's [GitHub repository](https://github.com/fdf-uni/ddfr/).
 
-Especially the [Introduction](https://fdf-uni.github.io/ddfr/articles/introduction/) should provide you with all relevant information to get started with the package.
+Especially the [Introduction](https://fdf-uni.github.io/ddfr/articles/introduction.html) should provide you with all relevant information to get started with the package.
 After having installed the package, you can also access it within `R` using:
 ``` r
 vignette("introduction", "ddfr")
