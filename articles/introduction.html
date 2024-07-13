@@ -12,12 +12,11 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<script src="../lightswitch.js"></script><script src="../katex-auto.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><link href="../deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
-<script src="../deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="../deps/MathJax-3.2.2/tex-chtml.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -224,7 +223,7 @@ Once again, for details, we refer to their respective documentation.</p>
 <code>ddf</code> objects to create new ones. Currently there are only
 two functions for doing so.</p>
 <p>The first one is the generic method <code>-</code> with which the
-support of a distribution can be multiplied with <span class="math inline">-1</span>:</p>
+support of a distribution can be multiplied with <span class="math inline">\(-1\)</span>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">-</span><span class="fu"><a href="../reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">0.8</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Binomial distribution with parameters n = 5 and p = 0.8, flipped at the origin </span></span>
@@ -258,15 +257,15 @@ should always be sufficient to understand them.</p>
 </h3>
 <ul>
 <li>
-<span class="math inline">n</span>-th raw moment as
+<span class="math inline">\(n\)</span>-th raw moment as
 <code><a href="../reference/moment.html">moment()</a></code>
 </li>
 <li>
-<span class="math inline">n</span>-th central moment as
+<span class="math inline">\(n\)</span>-th central moment as
 <code><a href="../reference/central_moment.html">central_moment()</a></code>
 </li>
 <li>
-<span class="math inline">n</span>-th standardized moment as
+<span class="math inline">\(n\)</span>-th standardized moment as
 <code><a href="../reference/standardized_moment.html">standardized_moment()</a></code>
 </li>
 </ul>
@@ -376,7 +375,7 @@ get the probability of any number:</p>
 <span><span class="co">#&gt; [1] 0.1029193</span></span></code></pre></div>
 <p>Note that this also works for numbers which are <em>not</em> part of
 a distribution’s support, in which case the function simply returns
-<span class="math inline">0</span>.</p>
+<span class="math inline">\(0\)</span>.</p>
 </div>
 <div class="section level3">
 <h3 id="sampling">Sampling<a class="anchor" aria-label="anchor" href="#sampling"></a>
@@ -439,8 +438,8 @@ two six-sided dice when tossed together, one can use</p>
 <p>The second example shows how the generic <code>*</code> has also been
 defined for objects from the <code>ddf</code> class to quickly convolve
 distributions.</p>
-<p>The function <code><a href="../reference/conv_n.html">conv_n()</a></code> calculates the <span class="math inline">n</span>-th fold convolution of a distribution with
-itself, see <code>?conv_n()</code> for details.</p>
+<p>The function <code><a href="../reference/conv_n.html">conv_n()</a></code> calculates the <span class="math inline">\(n\)</span>-th fold convolution of a distribution
+with itself, see <code>?conv_n()</code> for details.</p>
 <p>Lastly, there is also the function <code><a href="../reference/convolve_cpp.html">convolve_cpp()</a></code> which
 is the underlying implementation for the convolution using
 <code>Rcpp</code> for better performance. It is not really intended for
