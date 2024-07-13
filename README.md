@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ddfr is to make it easier to work with **_D_**iscrete **_D_**istributions with **_F_**inite support in **_R_**.
+The goal of ddfr is to make it easier to work with *D*iscrete *D*istributions with *F*inite support in *R*.
 
 For specific details, you can check out the [website](https://fdf-uni.github.io/ddfr) which is also linked in the description of this repository.
 

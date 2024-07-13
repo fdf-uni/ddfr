@@ -2,4 +2,4 @@ url: https://fdf-uni.github.io/ddfr/
 template:
   bootstrap: 5
   light-switch: true
-  math-rendering: katex
+  math-rendering: mathjax
