@@ -27,3 +27,4 @@ Suggests:
     spelling
 Language: en-US
 VignetteBuilder: knitr
+URL: https://fdf-uni.github.io/ddfr/

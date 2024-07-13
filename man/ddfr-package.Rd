@@ -6,7 +6,16 @@
 \alias{ddfr-package}
 \title{ddfr: Work with discrete distributions with finite support in R}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 This package enables you to create objects for representing discrete distributions with finite support by specifying their probability mass functions. These objects can then be used for a variety of tasks, from simple statistical analyses over plotting to convolutions.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://fdf-uni.github.io/ddfr/}
+}
+
 }
 \author{
 \strong{Maintainer}: fdf \email{171835561+fdf-uni@users.noreply.github.com}
