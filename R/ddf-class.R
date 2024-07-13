@@ -89,6 +89,10 @@ setClass(
 #' coin_toss <- ddf(c(1, 2), c(1 / 4, 3 / 4))
 #' coin_toss
 ddf <- function(supp, probs = rep(1 / length(supp), length(supp)), desc = "A discrete distribution with finite support") {
+  # This might be unnecessary, but we leave it here just to be sure
+  if (length(supp) != length(probs)) {
+    stop("Support and probabilities must have the same length")
+  }
   # Remove possible duplicates from the support
   if (any(duplicated(supp))) {
     cleaned <- aggregate(probs, by = list(supp = supp), FUN = sum)
@@ -275,9 +279,9 @@ setMethod("*", c("ddf", "ddf"), function(e1, e2) {
 setMethod("show", "ddf", function(object) {
   cat(object@desc, "\n\n")
   cat("Support:\n")
-  show(object@supp)
+  print(object@supp)
   cat("\nProbabilities:\n")
-  show(object@probs)
+  print(object@probs)
 })
 
 # Calculate mean

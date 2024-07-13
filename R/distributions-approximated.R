@@ -53,11 +53,9 @@
 #' pois(0.3, 1e-15)
 pois <- function(lambda, eps = 1e-10, normalize = TRUE) {
   # Check that lambda > 0
-  if (lambda <= 0)
-    stop("Argument `lambda` must be a positive real number")
+  if (lambda <= 0) { stop("Argument `lambda` must be a positive real number") }
   # Check that eps > 0
-  if (eps <= 0)
-    stop("Argument `eps` must be a positive real number")
+  if (eps <= 0) { stop("Argument `eps` must be a positive real number") }
   # Find large enough cutoff such that probabilities still almost sum up to 1
   upper_bound <- qpois(1 - eps, lambda)
   supp <- 0:upper_bound
@@ -130,11 +128,11 @@ pois <- function(lambda, eps = 1e-10, normalize = TRUE) {
 #' negative_bin(2.25, 0.95, 1e-12)
 negative_bin <- function(r, p, eps = 1e-10, normalize = TRUE) {
   # Check that r > 0
-  if (r <= 0)
-    stop("Argument `r` must be a positive real number")
+  if (r <= 0) { stop("Argument `r` must be a positive real number") }
   # Check that probability lies between 0 (excluded) and 1
-  if (!(0 < p & p <= 1))
+  if (!(0 < p & p <= 1)) {
     stop("Argument `p` must be between 0 (exclusive) and 1 (inclusive)")
+  }
   # Find large enough cutoff such that probabilities still almost sum up to 1
   upper_bound <- qnbinom(1 - eps, r, p)
   supp <- 0:upper_bound
