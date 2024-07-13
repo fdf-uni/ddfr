@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ddfr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -226,7 +226,7 @@ two functions for doing so.</p>
 support of a distribution can be multiplied with <span class="math inline">\(-1\)</span>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">-</span><span class="fu"><a href="../reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">0.8</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Binomial distribution with parameters n = 5 and p = 0.8, flipped at the origin </span></span>
+<span><span class="co">#&gt; Binomial distribution with parameters n = 5 and p = 0.8, multiplied with -1 </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Support:</span></span>
 <span><span class="co">#&gt; [1] -5 -4 -3 -2 -1  0</span></span>
@@ -400,13 +400,19 @@ for the S4 class <code>ddf</code>.</p>
 so here are all three functions in action:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="introduction_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
+<p><img src="introduction_files/figure-html/unnamed-chunk-10-1.png" alt="Plot of a binomial distribution with parameters n = 30 and p = 0.3. It is visualized as a column chart." width="700"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_pmf.html">plot_pmf</a></span><span class="op">(</span><span class="fu"><a href="../reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="introduction_files/figure-html/unnamed-chunk-10-2.png" width="700"></p>
+<code class="sourceCode R"><span><span class="co">#| fig.alt: &gt;</span></span>
+<span><span class="co">#|    Plot of the probability mass function of a binomial distribution with parameters n = 30 and p = 0.3.</span></span>
+<span><span class="co">#|    It is visualized using a line plot with points corresponding to the support of the distribution being highlighted additionally.</span></span>
+<span><span class="fu"><a href="../reference/plot_pmf.html">plot_pmf</a></span><span class="op">(</span><span class="fu"><a href="../reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="introduction_files/figure-html/unnamed-chunk-10-2.png" alt="Plot of a binomial distribution with parameters n = 30 and p = 0.3. It is visualized as a column chart." width="700"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_cdf.html">plot_cdf</a></span><span class="op">(</span><span class="fu"><a href="../reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="introduction_files/figure-html/unnamed-chunk-10-3.png" width="700"></p>
+<code class="sourceCode R"><span><span class="co">#| fig.alt: &gt;</span></span>
+<span><span class="co">#|    Plot of the cumulative distribution function of a binomial distribution with parameters n = 30 and p = 0.3.</span></span>
+<span><span class="co">#|    It is visualized using a line plot having the form of a step function with points corresponding to the support of the distribution being highlighted additionally.</span></span>
+<span><span class="fu"><a href="../reference/plot_cdf.html">plot_cdf</a></span><span class="op">(</span><span class="fu"><a href="../reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="introduction_files/figure-html/unnamed-chunk-10-3.png" alt="Plot of a binomial distribution with parameters n = 30 and p = 0.3. It is visualized as a column chart." width="700"></p>
 </div>
 <div class="section level2">
 <h2 id="convolutions">Convolutions<a class="anchor" aria-label="anchor" href="#convolutions"></a>
