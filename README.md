@@ -36,10 +36,12 @@ library(ddfr)
 dist <- unif(6)
 
 # Get some information about the distribution
-mean(dist)
+expected_value(dist)
 variance(dist)
 
 # Convolve it with itself
+conv(dist, dist)
+# This can also be done a bit quicker
 dist * dist
 
 # Plot the PMF of the distribution
