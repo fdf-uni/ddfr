@@ -38,18 +38,14 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="articles/ddfr.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/introduction.html">Introduction</a></li>
-  </ul>
-</li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/fdf-uni/ddfr/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
@@ -75,9 +71,9 @@
 
 <p>The goal of <code>ddfr</code> is to make it easier to work with <em>D</em>iscrete <em>D</em>istributions with <em>F</em>inite support in <em>R</em>.</p>
 <p>For specific details, you can check out the <a href="https://fdf-uni.github.io/ddfr/">website</a> (in case you aren’t already reading this there) which is also linked in the description of the package’s <a href="https://github.com/fdf-uni/ddfr/" class="external-link">GitHub repository</a>.</p>
-<p>Especially the <a href="https://fdf-uni.github.io/ddfr/articles/introduction.html">Introduction</a> should provide you with all relevant information to get started with the package. If you installed the package with the relevant option (see “Installation”), you can also access this vignette within <code>R</code> using:</p>
+<p>Especially the <a href="https://fdf-uni.github.io/ddfr/articles/ddfr.html">Introduction to ddfr</a> should provide you with all relevant information to get started with the package. If you installed the package with the relevant option (see “Installation”), you can also access this vignette within <code>R</code> using:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"introduction"</span>, <span class="st">"ddfr"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"ddfr"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, if you’d prefer to view it in your browser, there is also:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/browseVignettes.html" class="external-link">browseVignettes</a></span><span class="op">(</span><span class="st">"ddfr"</span><span class="op">)</span></span></code></pre></div>
@@ -113,7 +109,14 @@
 <span><span class="fu"><a href="reference/plot_pmf.html">plot_pmf</a></span><span class="op">(</span><span class="fu"><a href="reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-  </main><aside class="col-md-3"><div class="license">
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/fdf-uni/ddfr/" class="external-link">Browse source code</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
