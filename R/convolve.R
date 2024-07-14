@@ -101,6 +101,10 @@ conv_n <- function(dist, n, desc = NULL) {
       dist_new <- conv(dist, dist_new)
     }
   }
-  desc(dist_new) <- paste(n, "-fold convolution of ", desc(dist), sep = "")
+  desc(dist_new) <- ifelse(
+    is.null(desc),
+    paste(n, "-fold convolution of ", desc(dist), sep = ""),
+    desc
+  )
   return(dist_new)
 }
