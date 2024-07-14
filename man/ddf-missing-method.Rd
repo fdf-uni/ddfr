@@ -2,7 +2,7 @@
 % Please edit documentation in R/ddf-class.R
 \name{-,ddf,missing-method}
 \alias{-,ddf,missing-method}
-\title{Multiply support of a distribution with -1}
+\title{Multiply the support of a distribution with -1}
 \usage{
 \S4method{-}{ddf,missing}(e1, e2)
 }
@@ -15,7 +15,7 @@
 A \code{ddf} distribution.
 }
 \description{
-Multiply support of a distribution with -1
+Multiply the support of a distribution with -1
 }
 \examples{
 -bin(5, 0.1)

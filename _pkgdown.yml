@@ -8,7 +8,7 @@ navbar:
     left:  [intro, reference, articles, tutorials, news]
     right: [search, github, lightswitch]
 reference:
-- title: Basics of `ddfr`
+- title: The `ddf` Class
 - contents:
   - ddf-class
   - ddf

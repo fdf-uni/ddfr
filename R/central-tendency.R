@@ -1,4 +1,4 @@
-#' Calculate expected values of distributions
+#' Calculate the expected value of distributions
 #'
 #' @description
 #' This function calculates the mean/expected value of a discrete distribution

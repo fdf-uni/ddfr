@@ -66,7 +66,7 @@ conv <- function(dist1, dist2, desc = "A convolution") {
   return(ddf(result$support, result$probabilities, desc))
 }
 
-#' Calculate n-fold convolution of a distribution with itself
+#' Calculate the n-fold convolution of a distribution with itself
 #'
 #' @description
 #' Using this function, a distribution, given as a `ddf` object, can be
@@ -90,10 +90,17 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 #' # Model a symmetric random walk starting at 0
 #' # with step size 1 of length 4
 #' conv_n(rademacher(), 4)
-conv_n <- function(dist, n, desc = paste(n, "-fold convolution of", desc(dist))) {
+conv_n <- function(dist, n, desc = NULL) {
   dist_new <- dist
-  for (i in 1:(n - 1)) {
-    dist_new <- conv(dist, dist_new)
+  # Check that n is large enough integer (cp. "distributions.R" or ?integer)
+  if (!(is.wholenumber(n) & n >= 0)) {
+    stop("Argument `n` must be a non-negative integer")
   }
+  if (n >= 1) {
+    for (i in 1:(n - 1)) {
+      dist_new <- conv(dist, dist_new)
+    }
+  }
+  desc(dist_new) <- paste(n, "-fold convolution of ", desc(dist), sep = "")
   return(dist_new)
 }

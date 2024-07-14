@@ -250,7 +250,7 @@ setMethod("desc<-", "ddf", function(dist, value) {
 
 # == Further methods ==
 
-#' Multiply support of a distribution with -1
+#' Multiply the support of a distribution with -1
 #'
 #' @param e1 A `ddf` object, the distribution.
 #' @param e2 Unused argument. Has to be missing.

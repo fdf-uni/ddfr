@@ -2,9 +2,9 @@
 % Please edit documentation in R/convolve.R
 \name{conv_n}
 \alias{conv_n}
-\title{Calculate n-fold convolution of a distribution with itself}
+\title{Calculate the n-fold convolution of a distribution with itself}
 \usage{
-conv_n(dist, n, desc = paste(n, "-fold convolution of", desc(dist)))
+conv_n(dist, n, desc = NULL)
 }
 \arguments{
 \item{dist}{A \code{ddf} object, the distribution.}

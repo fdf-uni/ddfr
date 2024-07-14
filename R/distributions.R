@@ -1,6 +1,6 @@
 # Implementation of common discrete distributions with finite support
 
-# Compare examples of ?integer()
+# Compare examples of ?integer
 is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
   abs(x - round(x)) < tol
 }

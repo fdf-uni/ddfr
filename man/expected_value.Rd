@@ -3,7 +3,7 @@
 \name{expected_value}
 \alias{expected_value}
 \alias{mean,ddf-method}
-\title{Calculate expected values of distributions}
+\title{Calculate the expected value of distributions}
 \usage{
 expected_value(dist)
 

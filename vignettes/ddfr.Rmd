@@ -197,8 +197,8 @@ For details, the respective documentations should hopefully suffice.
 - $n$-th central moment as `central_moment()`
 - $n$-th standardized moment as `standardized_moment()`
 
-Besides this, there are also additional functions for calculating other often
-used moments (besides the already mentioned variance):
+Besides this, there are also additional functions for calculating some specific
+often used moments (besides the already previously mentioned variance):
 
 - Skewness as `skew()`
 - Kurtosis as `kurtosis()`
@@ -224,7 +224,7 @@ better readability, the output is printed as normal text):
 cat(report(bin(15, 0.7)))
 ```
 
-# Creating New Objects from `ddf` Distributions
+# Creating new objects from `ddf` distributions
 
 ## Creating `R` functions
 
@@ -288,7 +288,7 @@ unif(6) * unif(6)
 The second example shows how the generic `*` has also been defined for objects
 from the `ddf` class to quickly convolve distributions.
 
-The function `conv_n()` calculates the $n$-th fold convolution of a distribution
+The function `conv_n()` calculates the $n$-fold convolution of a distribution
 with itself, see `?conv_n()` for details.
 
 Lastly, there is also the function `convolve_cpp()` which is the underlying
