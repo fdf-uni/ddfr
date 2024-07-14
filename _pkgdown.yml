@@ -3,3 +3,72 @@ template:
   bootstrap: 5
   light-switch: true
   math-rendering: mathjax
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github, lightswitch]
+reference:
+- title: Basics of `ddfr`
+- contents:
+  - ddf-class
+  - ddf
+  - ddf_from_frequencies
+  - supp
+  - probs
+  - desc
+  - "`desc<-`"
+  - "`-,ddf,missing-method`"
+  - shift
+- title: Common Discrete Distributions
+- subtitle: Distributions with Finite Support
+- contents:
+  - benford
+  - bernoulli
+  - beta_binomial
+  - bin
+  - hypergeometric
+  - negative_hypergeometric
+  - rademacher
+  - unif
+  - zipf
+- subtitle: Distributions with Countably Infinite Support
+- contents:
+  - geometric
+  - negative_bin
+  - pois
+- title: Analysing Properties of Distributions
+- subtitle: Central Tendency
+- contents:
+  - expected_value
+  - medians
+  - modes
+- subtitle: Dispersion
+- contents:
+  - standard_deviation
+  - variance
+  - iqr
+  - distribution_range
+- subtitle: Moments
+- contents:
+  - has_concept("moments")
+  - skew
+  - kurtosis
+  - excess_kurtosis
+- subtitle: Quantiles
+- contents:
+  - has_concept("quantiles")
+- subtitle: Other
+- contents:
+  - entropy
+  - report
+- title: Creating New Objects from Distributions
+- contents:
+  - pmf
+  - cdf
+  - samples
+- title: Plotting
+- contents:
+  - matches("plot")
+- title: Convolutions
+- contents:
+  - has_concept("convolution functions")

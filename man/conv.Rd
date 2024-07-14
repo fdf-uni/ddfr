@@ -59,14 +59,18 @@ conv(dice, dice, desc = "Distribution of throwing a dice twice")
 # (Up to description) equivalent call using generic method
 dice * dice
 
+
 # Note that for distributions which are approximated without
 # also being normalized, approximation errors can propagate
 # when convolving:
 try(conv(unif(5), geometric(0.9, normalize = FALSE)))
+
 # This can be corrected by using a better approximation
 conv(unif(5), geometric(0.9, eps = 1e-11, normalize = FALSE))
+
 # Or simply by normalizing
 conv(unif(5), geometric(0.9))
+
 
 # When one is interested in the difference instead of
 # the sum, one can use the generic `-` which multiplies

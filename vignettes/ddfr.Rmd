@@ -1,10 +1,10 @@
 ---
-title: "Introduction"
+title: "Introduction to ddfr"
 output:
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{Introduction}
+  %\VignetteIndexEntry{Introduction to ddfr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -23,12 +23,10 @@ constraints.
 
 Nevertheless, this vignette, together with the documentation usable within `R`
 by `?` should be more than enough in order to get started with this package.
-Although this should become obvious as this vignette goes on, I'd like to
-clarify that this vignette is not to be understood as an extensive documentation.
-Rather, it only lists all available features of the package such that one knows
-what is possible.
-_Every_ function listed below has a dedicated help page in `R` which should be
-regarded as its main documentation.
+_Every_ function listed below has a dedicated help page in `R` which should
+hopefully provide you with all relevant information.
+You can also check out the
+[Reference](https://fdf-uni.github.io/ddfr/reference/index.html) on the website.
 
 Lastly, thanks a lot for checking out my package! :)
 
@@ -40,23 +38,49 @@ in `R` using the following command:
 library(ddfr)
 ```
 
-The focus of the package is working with the S4 class `ddf` which provides a
-convenient way to work with discrete distributions with finite support in `R`.
+The focus of the package is working with the custom S4 class `ddf` which
+provides a convenient way to work with discrete distributions with finite
+support in `R`.
+
+It has three slots called `supp`, `probs` and `desc` which, in that order, give
+the support of the distribution, the corresponding probabilities and a short
+description of the respective distribution.
+They can all be accessed using the getters `supp()`, `probs()` and `desc()`.
+For the description there is also a setter such that it can easily be changed:
+
+```{r}
+mydist <- ddf(1:6, rep(1 / 6, 6), "A first description")
+mydist
+supp(mydist)
+desc(mydist) <- "This description fits better"
+mydist
+```
 
 # Creating new `ddf` objects
 
 ## Manually
 
-The intended way to create new `ddf` objects is to use the provided function
-with the same name. It takes as its arguments a numerical vector specifying the
-support of the distribution, a second numerical vector of the same length
-containing the corresponding probabilities and lastly, an optional description
-of the distribution.
+The intended way to create custom new `ddf` objects is to use the provided
+function with the same name. It takes as its arguments a numerical vector
+specifying the support of the distribution, a second numerical vector of the
+same length containing the corresponding probabilities and lastly, an optional
+description of the distribution.
 
 For example, to create a distribution modeling a single throw of a fair
 six-sided dice, one can use:
 ```{r}
 ddf(1:6, rep(1 / 6, 6), "A distribution modeling a single dice throw")
+```
+
+Note that the probabilities have to approximately sum up to $1$ or otherwise the
+function throws an error. While this might change in the future, in the current
+implementation, the error has to be less than `1e-10`:
+```{r}
+# Probabilities don't sum up to ≈1
+try(ddf(1, 1 - 1e-10))
+
+# This works
+ddf(1, 1 - 1e-11)
 ```
 
 In case one does not have probabilities, but absolute frequencies instead, one
@@ -69,32 +93,19 @@ ddf_from_frequencies(1:6, c(19, 14, 17, 18, 15, 17), "My dice throws")
 As one can see, the arguments are mostly the same except for passing the
 frequencies instead of the probabilities as the second argument.
 
-For more details on both methods consult `?ddf()` and `?ddf_from_frequencies()`,
-respectively.
-
-### Setters and Getters for `ddf` objects
-
-We here note that every `ddf` object has three slots, called `supp`, `probs` and
-`desc` which give the support, the probabilities and the description of the
-distribution.
-They can all be accessed using the getters `supp()`, `probs()` and `desc()`.
-For the description there is also a setter such that it can easily be changed:
-
-```{r}
-mydist <- ddf(1:6, rep(1 / 6, 6), "My first description")
-mydist
-supp(mydist)
-desc(mydist) <- "This description fits better"
-mydist
-```
-
+For more details on both methods please consult the documentation of `ddf()` and
+`ddf_from_frequencies()`, respectively.
 
 ## Using the already implemented distributions
 
-`ddfr` provides a large amount of common distributions via convenient functions.
+`ddfr` already provides you with a large amount of common discrete distributions.
 The below list shows the currently implemented discrete distributions with
 finite support.
 To learn more about any single one of them, use the help in `R`, e.g. `?bin()`.
+Once again I'd like to mention the 
+[Reference](https://fdf-uni.github.io/ddfr/reference/index.html)
+as it might also be a convenient way to find a specific distribution you're
+looking for.
 
 - Discrete uniform distribution as `unif()`
 - Bernoulli distribution as `bernoulli()`
@@ -107,12 +118,43 @@ To learn more about any single one of them, use the help in `R`, e.g. `?bin()`.
 - Beta-binomial distribution as `beta_binomial()`
 
 Furthermore, there are also functions to create approximations of the following
-three discrete distributions with countably infinite support. Once again, for
-details, we refer to their respective documentation.
+three discrete distributions with countably infinite support.
 
 - Poisson distribution as `pois()`
 - Negative binomial distribution as `negative_bin()`
 - Geometric distribution as `geometric()`
+
+The approximation works by finding a large enough number $r > 0$ such that
+cutting of the support after $r$ yields an overall probability which is within
+a given range $\epsilon$ of $1$. The default value for $\epsilon$ is `1e-10`,
+however this can be customized using the `eps` argument.
+Unless the `normalize` argument is manually set to `FALSE` (by default it is
+`TRUE`) the approximation is then also normalized such that the sum of
+all probabilities becomes precisely one.
+The following examples demonstrate this, however, for further details you might
+also want to check out the respective documentation of the function you're using.
+```{r}
+# Approximation of the Poisson distribution
+# to demonstrate the `normalize` argument
+p <- pois(20, normalize = FALSE)
+
+# Not equal to one (but still pretty close):
+1 - sum(probs(p))
+
+# Note how the `normalize` argument here could be omitted
+# since it is `TRUE` by default
+p_normalized <- pois(20, normalize = TRUE)
+
+# Now the summed probabilities are equal to one:
+1 - sum(probs(p_normalized))
+
+
+# For most cases, something like this should suffice
+geometric(0.8)
+
+# However, you can of course increase the accuracy if you want to
+geometric(0.8, eps = .Machine$double.eps)
+```
 
 ## From other `ddf` objects
 
@@ -134,32 +176,36 @@ shift(unif(3), 3)
 
 # Analysis of distributions
 
-`ddfr` provides many ways to analyze a given distribution. We only list the
-corresponding functions below as their documentations should always be
-sufficient to understand them.
+`ddfr` provides many ways to analyze a given distribution.
+This section only lists the corresponding functions.
+For details, the respective documentations should hopefully suffice.
+
+## Central tendency
+- Expected value as `expected_value()` or generic `mean()`
+- Medians as `medians()` (plural form as they aren't necessarily unique)
+- Modes as `modes()` (plural form as they aren't necessarily unique)
+
+## Dispersion
+- Standard deviation as `standard_deviation()`
+- Variance as `variance()`
+- Interquartile range as `iqr()`
+- Range as `distribution_range()`
 
 ## Moments
+
 - $n$-th raw moment as `moment()`
 - $n$-th central moment as `central_moment()`
 - $n$-th standardized moment as `standardized_moment()`
 
-## Central tendency
-- Expected value as `expected_value()` or generic `mean()`
-- Modes as `modes()` (plural form as they aren't necessarily unique)
-- Medians as `medians()` (plural form as they aren't necessarily unique)
+Besides this, there are also additional functions for calculating other often
+used moments (besides the already mentioned variance):
 
-## Dispersion
-- Variance as `variance()`
-- Standard deviation as `standard_deviation()`
-- Range as `distribution_range()`
-- Interquartile range as `iqr()`
-
-## Further important moments
 - Skewness as `skew()`
 - Kurtosis as `kurtosis()`
 - Excess kurtosis as `excess_kurtosis()`
 
 ## Quantiles
+
 - Quantiles as `quantiles()`
 - Percentiles as `percentile()`
 - Deciles as `decile()`
@@ -171,13 +217,14 @@ sufficient to understand them.
 ## Report
 In case one wants to quickly get an overview of the considered distribution,
 there is also the function `report()` which, as the name suggests, writes a
-report on the given distribution:
+report on the given distribution involving most of the above properties.
+The following example demonstrates this (please not that for the purpose of
+better readability, the output is printed as normal text):
 ```{r, results='asis'}
 cat(report(bin(15, 0.7)))
 ```
 
-
-# Creating new objects from `ddf` distributions
+# Creating New Objects from `ddf` Distributions
 
 ## Creating `R` functions
 
@@ -191,7 +238,11 @@ probability of any number:
 pmf(bin(10, 0.7))(5)
 ```
 Note that this also works for numbers which are _not_ part of a distribution's
-support, in which case the function simply returns $0$.
+support, in which case the function simply returns $0$:
+```{r}
+pmf(bin(10, 0.7))(3.5)
+```
+
 
 ## Sampling
 
@@ -201,7 +252,7 @@ For example, one can simulate 10 fair dice throws as follows:
 samples(unif(6), 10)
 ```
 This function was also used to generate the frequency table for dice throws
-above.
+above in the "Creating new `ddf` objects" section.
 
 # Plotting
 
@@ -243,4 +294,4 @@ with itself, see `?conv_n()` for details.
 Lastly, there is also the function `convolve_cpp()` which is the underlying
 implementation for the convolution using `Rcpp` for better performance.
 It is not really intended for use with `ddfr` objects directly, but might still
-be useful in many other applications.
+be useful in other applications.

@@ -160,7 +160,7 @@ ddf_from_frequencies <- function(
 
 # == Getters ==
 
-#' The support
+#' Get the support of a `ddf` object
 #'
 #' @description
 #' This function returns the support of a given distribution

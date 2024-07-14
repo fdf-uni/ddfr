@@ -6,6 +6,11 @@
 //' `convolve_cpp` returns the convolution of two discrete distributions given
 //' their supports and the corresponding probabilities.
 //'
+//' It is not really intended for use with `ddf` objects but rather for more
+//' general situations.
+//' If you want to convolve two `ddf` distributions, it is recommended and
+//' certainly more convenient to use [conv()] instead.
+//'
 //' @details
 //' Some assumptions are made for the function to work properly which should be
 //' followed. Most importantly, corresponding numeric vectors (e.g. `supp1` and

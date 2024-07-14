@@ -14,6 +14,7 @@ This package enables you to create objects for representing discrete distributio
 Useful links:
 \itemize{
   \item \url{https://fdf-uni.github.io/ddfr/}
+  \item \url{https://github.com/fdf-uni/ddfr/}
 }
 
 }

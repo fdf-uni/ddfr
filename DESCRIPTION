@@ -27,4 +27,4 @@ Suggests:
     spelling
 Language: en-US
 VignetteBuilder: knitr
-URL: https://fdf-uni.github.io/ddfr/
+URL: https://fdf-uni.github.io/ddfr/, https://github.com/fdf-uni/ddfr/

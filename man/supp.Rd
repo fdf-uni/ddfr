@@ -3,7 +3,7 @@
 \name{supp}
 \alias{supp}
 \alias{supp,ddf-method}
-\title{The support}
+\title{Get the support of a \code{ddf} object}
 \usage{
 supp(dist)
 

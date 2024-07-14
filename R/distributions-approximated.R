@@ -49,8 +49,8 @@
 #'
 #' @examples
 #' pois(0.3)
-#' # A more accurate approximation of the same distribution
-#' pois(0.3, 1e-15)
+#' # A much more accurate approximation of the same distribution
+#' pois(0.3, .Machine$double.eps)
 pois <- function(lambda, eps = 1e-10, normalize = TRUE) {
   # Check that lambda > 0
   if (lambda <= 0) {

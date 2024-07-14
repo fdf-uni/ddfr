@@ -17,6 +17,11 @@ A list.
 \description{
 \code{convolve_cpp} returns the convolution of two discrete distributions given
 their supports and the corresponding probabilities.
+
+It is not really intended for use with \code{ddf} objects but rather for more
+general situations.
+If you want to convolve two \code{ddf} distributions, it is recommended and
+certainly more convenient to use \code{\link[=conv]{conv()}} instead.
 }
 \details{
 Some assumptions are made for the function to work properly which should be
