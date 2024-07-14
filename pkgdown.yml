@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   ddfr: ddfr.html
-last_built: 2024-07-14T19:40Z
+last_built: 2024-07-14T19:47Z
 urls:
   reference: https://fdf-uni.github.io/ddfr/reference
   article: https://fdf-uni.github.io/ddfr/articles
