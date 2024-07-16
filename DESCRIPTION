@@ -1,6 +1,6 @@
 Package: ddfr
 Title: Work with discrete distributions with finite support in R
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(
       "fdf",
