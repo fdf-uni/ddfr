@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.3.3",
+    "Version": "4.4.1",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -560,9 +560,14 @@
     },
     "httr2": {
       "Package": "httr2",
-      "Version": "1.0.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "1.0.1.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "httr2",
+      "RemoteUsername": "r-lib",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "4f4ec9e7c27ce9a67c43c56694c9b0a372538149",
       "Requirements": [
         "R",
         "R6",
@@ -577,7 +582,7 @@
         "vctrs",
         "withr"
       ],
-      "Hash": "03d741c92fda96d98c3a3f22494e3b4a"
+      "Hash": "55fe90e0e551e7eacb4f326119f6251b"
     },
     "hunspell": {
       "Package": "hunspell",

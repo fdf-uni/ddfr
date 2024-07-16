@@ -35,7 +35,7 @@
 #'
 #' @return Convolution as a `ddf` object.
 #' @export
-#' @family {convolution functions}
+#' @family convolution functions
 #'
 #' @examples
 #' # Calculate the distribution of the sum of throwing a dice twice
@@ -81,7 +81,7 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 #'
 #' @return \eqn{n}-fold convolution as a `ddf` object.
 #' @export
-#' @family {convolution functions}
+#' @family convolution functions
 #'
 #' @examples
 #' # Calculate the distribution of the sum of

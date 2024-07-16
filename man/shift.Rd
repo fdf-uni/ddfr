@@ -4,14 +4,14 @@
 \alias{shift}
 \title{Shift a distribution}
 \usage{
-shift(dist, s, desc_shift = paste(desc(dist), ", shifted by ", s, sep = ""))
+shift(dist, s, desc = NULL)
 }
 \arguments{
 \item{dist}{A \code{ddf} object, the distribution.}
 
 \item{s}{A number, the shift to be applied to the distribution.}
 
-\item{desc_shift}{A character, the description for the shifted distribution.
+\item{desc}{A character, the description for the shifted distribution.
 (optional)}
 }
 \value{

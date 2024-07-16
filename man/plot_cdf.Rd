@@ -7,7 +7,7 @@
 plot_cdf(
   dist,
   xlab = "x",
-  ylab = "ℙ[X ≤ x]",
+  ylab = "P[X ≤ x]",
   col = "deepskyblue3",
   main = NULL,
   sub = NULL
@@ -41,8 +41,8 @@ For further details on the cumulative density function, you may consult \code{\l
 plot_cdf(bin(20, 0.8))
 }
 \seealso{
-Other {plotting functions}: 
+Other plotting functions: 
 \code{\link{plot,ddf,missing-method}},
 \code{\link{plot_pmf}()}
 }
-\concept{{plotting functions}}
+\concept{plotting functions}

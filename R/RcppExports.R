@@ -21,7 +21,7 @@
 #' which give the matching attributes of the convolution.
 #'
 #' @export
-#' @family {convolution functions}
+#' @family convolution functions
 #' @param supp1,probs1 Numeric vectors of the same length.
 #' @param supp2,probs2 Numeric vectors of the same length.
 #' @return A list.

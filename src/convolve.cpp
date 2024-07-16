@@ -20,7 +20,7 @@
 //' which give the matching attributes of the convolution.
 //'
 //' @export
-//' @family {convolution functions}
+//' @family convolution functions
 //' @param supp1,probs1 Numeric vectors of the same length.
 //' @param supp2,probs2 Numeric vectors of the same length.
 //' @return A list.
@@ -46,10 +46,9 @@ Rcpp::List convolve_cpp(const Rcpp::NumericVector &supp1,
   }
 
   // Get result as STL vectors
-  int conv_size = conv.size();
   std::vector<double> supp, probs;
-  supp.reserve(conv_size);
-  probs.reserve(conv_size);
+  supp.reserve(conv.size());
+  probs.reserve(conv.size());
   for (auto const &element : conv) {
     supp.push_back(element.first);
     probs.push_back(element.second);

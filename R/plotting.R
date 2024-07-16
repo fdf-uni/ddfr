@@ -21,7 +21,7 @@
 #'
 #' @return A `ggplot` object displaying the PMF of the given distribution.
 #' @export
-#' @family {plotting functions}
+#' @family plotting functions
 #'
 #' @examples
 #' # Plot the PMF of a binomial distribution
@@ -29,7 +29,7 @@
 #' # A similar plot using the S4 generic
 #' plot(bin(20, 0.8))
 plot_pmf <- function(
-    dist, xlab = "x", ylab = "\u2119[X = x]",
+    dist, xlab = "x", ylab = "P[X = x]",
     col = "deepskyblue3", main = NULL, sub = NULL) {
   p <- ggplot(mapping = aes(x = supp(dist), y = probs(dist))) +
     geom_line() +
@@ -58,13 +58,13 @@ plot_pmf <- function(
 #'
 #' @return A `ggplot` object displaying the CDF of the given distribution.
 #' @export
-#' @family {plotting functions}
+#' @family plotting functions
 #'
 #' @examples
 #' # Plot the CDF of a binomial distribution
 #' plot_cdf(bin(20, 0.8))
 plot_cdf <- function(
-    dist, xlab = "x", ylab = "\u2119[X \u2264 x]",
+    dist, xlab = "x", ylab = "P[X \u2264 x]",
     col = "deepskyblue3", main = NULL, sub = NULL) {
   supp <- supp(dist)
   probs <- probs(dist)

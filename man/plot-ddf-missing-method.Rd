@@ -39,8 +39,8 @@ Create a plot of a \code{ddf} distribution.
 plot(pois(8))
 }
 \seealso{
-Other {plotting functions}: 
+Other plotting functions: 
 \code{\link{plot_cdf}()},
 \code{\link{plot_pmf}()}
 }
-\concept{{plotting functions}}
+\concept{plotting functions}

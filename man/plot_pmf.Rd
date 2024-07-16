@@ -7,7 +7,7 @@
 plot_pmf(
   dist,
   xlab = "x",
-  ylab = "ℙ[X = x]",
+  ylab = "P[X = x]",
   col = "deepskyblue3",
   main = NULL,
   sub = NULL
@@ -46,8 +46,8 @@ plot_pmf(bin(20, 0.8))
 plot(bin(20, 0.8))
 }
 \seealso{
-Other {plotting functions}: 
+Other plotting functions: 
 \code{\link{plot,ddf,missing-method}},
 \code{\link{plot_cdf}()}
 }
-\concept{{plotting functions}}
+\concept{plotting functions}

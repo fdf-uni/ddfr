@@ -32,8 +32,8 @@ conv_n(ddf(1:6), 4, desc = "Distribution of throwing a dice four times")
 conv_n(rademacher(), 4)
 }
 \seealso{
-Other {convolution functions}: 
+Other convolution functions: 
 \code{\link{conv}()},
 \code{\link{convolve_cpp}()}
 }
-\concept{{convolution functions}}
+\concept{convolution functions}

@@ -2,7 +2,7 @@
 # ddfr <a href="https://fdf-uni.github.io/ddfr/"><img src="man/figures/logo.png" align="right" height="116" alt="ddfr website" /></a>
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/fdf-uni/ddfr/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/fdf-uni/ddfr/actions/workflows/R-CMD-check.yml)
+[![R-CMD-check](https://github.com/fdf-uni/ddfr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fdf-uni/ddfr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `ddfr` is to make it easier to work with *D*iscrete *D*istributions with *F*inite support in *R*.

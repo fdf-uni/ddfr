@@ -78,8 +78,8 @@ conv(unif(5), geometric(0.9))
 conv(unif(6), -unif(6))
 }
 \seealso{
-Other {convolution functions}: 
+Other convolution functions: 
 \code{\link{conv_n}()},
 \code{\link{convolve_cpp}()}
 }
-\concept{{convolution functions}}
+\concept{convolution functions}

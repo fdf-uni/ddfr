@@ -308,7 +308,7 @@ setMethod("mean", "ddf", function(x) {
 #'
 #' @return A `ggplot` object displaying the given distribution.
 #' @export
-#' @family {plotting functions}
+#' @family plotting functions
 #'
 #' @examples
 #' plot(pois(8))
