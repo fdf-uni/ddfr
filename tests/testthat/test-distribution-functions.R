@@ -1,6 +1,6 @@
 test_that("pmf gives correct value at elements in support", {
-  expect_equal(pmf(unif(6))(3), 1/6)
-  expect_equal(pmf(bin(20, 0.3))(5), choose(20, 5) * 0.3^5 * (1-0.3)^15)
+  expect_equal(pmf(unif(6))(3), 1 / 6)
+  expect_equal(pmf(bin(20, 0.3))(5), choose(20, 5) * 0.3^5 * (1 - 0.3)^15)
 })
 
 test_that("pmf is zero at elements not in support", {

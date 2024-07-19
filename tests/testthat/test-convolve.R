@@ -1,12 +1,12 @@
 test_that("convolution works correctly for a uniform discrete distribution", {
   expect_equal(supp(conv(unif(6), unif(6))), 2:12)
   expect_equal(probs(conv(unif(6), unif(6))), c(
-    1/36, 1/18, 1/12, 1/9, 5/36, 1/6, 5/36, 1/9, 1/12, 1/18, 1/36
+    1 / 36, 1 / 18, 1 / 12, 1 / 9, 5 / 36, 1 / 6, 5 / 36, 1 / 9, 1 / 12, 1 / 18, 1 / 36
   ))
   # Also check that generic * works
   expect_equal(supp(unif(6) * unif(6)), 2:12)
   expect_equal(probs(unif(6) * unif(6)), c(
-    1/36, 1/18, 1/12, 1/9, 5/36, 1/6, 5/36, 1/9, 1/12, 1/18, 1/36
+    1 / 36, 1 / 18, 1 / 12, 1 / 9, 5 / 36, 1 / 6, 5 / 36, 1 / 9, 1 / 12, 1 / 18, 1 / 36
   ))
 })
 

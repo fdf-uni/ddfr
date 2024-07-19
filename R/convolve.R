@@ -100,7 +100,7 @@ conv_n <- function(dist, n, desc = NULL) {
     stop("Argument `n` must be a positive integer")
   }
   if (n > 1) {
-    for (i in 1:(n-1)) {
+    for (i in 1:(n - 1)) {
       dist_new <- conv(dist, dist_new)
     }
   }
