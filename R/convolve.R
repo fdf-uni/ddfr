@@ -73,10 +73,13 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 #' convolved with itself \eqn{n} times.
 #'
 #' @details
-#' For more details, see [conv()].
+#' The \eqn{n}-fold convolution of a function \eqn{f} here is defined by letting
+#' \eqn{f^{\ast 1} = f} and then recursively setting
+#' \eqn{f^{\ast (n+1)} = f^{\ast n} \ast f} for all \eqn{n \ge 1}.
+#' For more details on the convolution, see [conv()].
 #'
 #' @param dist A `ddf` object, the distribution.
-#' @param n An integer specifying the number of convolutions to perform.
+#' @param n A positive integer specifying the number of convolutions to perform.
 #' @param desc The description for the resulting `ddf` object. (optional)
 #'
 #' @return \eqn{n}-fold convolution as a `ddf` object.
@@ -93,11 +96,11 @@ conv <- function(dist1, dist2, desc = "A convolution") {
 conv_n <- function(dist, n, desc = NULL) {
   dist_new <- dist
   # Check that n is large enough integer (cp. "distributions.R" or ?integer)
-  if (!(is.wholenumber(n) & n >= 0)) {
-    stop("Argument `n` must be a non-negative integer")
+  if (!(is.wholenumber(n) & n >= 1)) {
+    stop("Argument `n` must be a positive integer")
   }
-  if (n >= 1) {
-    for (i in 1:(n - 1)) {
+  if (n > 1) {
+    for (i in 1:(n-1)) {
       dist_new <- conv(dist, dist_new)
     }
   }

@@ -24,7 +24,9 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    spelling
+    spelling,
+    testthat (>= 3.0.0)
 Language: en-US
 VignetteBuilder: knitr
 URL: https://fdf-uni.github.io/ddfr/, https://github.com/fdf-uni/ddfr/
+Config/testthat/edition: 3

@@ -9,7 +9,7 @@ conv_n(dist, n, desc = NULL)
 \arguments{
 \item{dist}{A \code{ddf} object, the distribution.}
 
-\item{n}{An integer specifying the number of convolutions to perform.}
+\item{n}{A positive integer specifying the number of convolutions to perform.}
 
 \item{desc}{The description for the resulting \code{ddf} object. (optional)}
 }
@@ -21,7 +21,10 @@ Using this function, a distribution, given as a \code{ddf} object, can be
 convolved with itself \eqn{n} times.
 }
 \details{
-For more details, see \code{\link[=conv]{conv()}}.
+The \eqn{n}-fold convolution of a function \eqn{f} here is defined by letting
+\eqn{f^{\ast 1} = f} and then recursively setting
+\eqn{f^{\ast (n+1)} = f^{\ast n} \ast f} for all \eqn{n \ge 1}.
+For more details on the convolution, see \code{\link[=conv]{conv()}}.
 }
 \examples{
 # Calculate the distribution of the sum of
