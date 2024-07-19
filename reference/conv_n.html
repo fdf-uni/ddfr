@@ -59,7 +59,7 @@ convolved with itself \(n\) times.</p>
 
 
 <dt id="arg-n">n<a class="anchor" aria-label="anchor" href="#arg-n"></a></dt>
-<dd><p>An integer specifying the number of convolutions to perform.</p></dd>
+<dd><p>A positive integer specifying the number of convolutions to perform.</p></dd>
 
 
 <dt id="arg-desc">desc<a class="anchor" aria-label="anchor" href="#arg-desc"></a></dt>
@@ -72,7 +72,10 @@ convolved with itself \(n\) times.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>For more details, see <code><a href="conv.html">conv()</a></code>.</p>
+    <p>The \(n\)-fold convolution of a function \(f\) here is defined by letting
+\(f^{\ast 1} = f\) and then recursively setting
+\(f^{\ast (n+1)} = f^{\ast n} \ast f\) for all \(n \ge 1\).
+For more details on the convolution, see <code><a href="conv.html">conv()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

@@ -82,7 +82,8 @@
 </h2>
 <p>You can install the development version of <code>ddfr</code> like so:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fdf-uni/ddfr"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fdf-uni/ddfr"</span><span class="op">)</span></span></code></pre></div>
 <p>If you want to be able to access the vignettes from within <code>R</code> as described above, use:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fdf-uni/ddfr"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -98,15 +99,39 @@
 <span></span>
 <span><span class="co"># Get some information about the distribution</span></span>
 <span><span class="fu"><a href="reference/expected_value.html">expected_value</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3.5</span></span>
 <span><span class="fu"><a href="reference/variance.html">variance</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2.916667</span></span>
 <span></span>
 <span><span class="co"># Convolve it with itself</span></span>
 <span><span class="fu"><a href="reference/conv.html">conv</a></span><span class="op">(</span><span class="va">dist</span>, <span class="va">dist</span><span class="op">)</span></span>
+<span><span class="co">#&gt; A convolution </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Support:</span></span>
+<span><span class="co">#&gt;  [1]  2  3  4  5  6  7  8  9 10 11 12</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Probabilities:</span></span>
+<span><span class="co">#&gt;  [1] 0.02777778 0.05555556 0.08333333 0.11111111 0.13888889 0.16666667</span></span>
+<span><span class="co">#&gt;  [7] 0.13888889 0.11111111 0.08333333 0.05555556 0.02777778</span></span>
+<span></span>
 <span><span class="co"># This can also be done a bit quicker</span></span>
 <span><span class="va">dist</span> <span class="op">*</span> <span class="va">dist</span></span>
+<span><span class="co">#&gt; A convolution </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Support:</span></span>
+<span><span class="co">#&gt;  [1]  2  3  4  5  6  7  8  9 10 11 12</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Probabilities:</span></span>
+<span><span class="co">#&gt;  [1] 0.02777778 0.05555556 0.08333333 0.11111111 0.13888889 0.16666667</span></span>
+<span><span class="co">#&gt;  [7] 0.13888889 0.11111111 0.08333333 0.05555556 0.02777778</span></span>
+<span></span>
+<span><span class="co"># Quickly get the probability of 4 according to the convolution</span></span>
+<span><span class="fu"><a href="reference/pmf.html">pmf</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">*</span> <span class="va">dist</span><span class="op">)</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.08333333</span></span>
 <span></span>
 <span><span class="co"># Plot the probability mass function of a binomial distribution</span></span>
 <span><span class="fu"><a href="reference/plot_pmf.html">plot_pmf</a></span><span class="op">(</span><span class="fu"><a href="reference/bin.html">bin</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-example-1.png" width="100%"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
